@@ -1,0 +1,41 @@
+//FONT FACE
+
+// GLOBAL SETTINGS
+$body-font-family: open-sans, #{font-stack("helvetica")};
+$global-font-size: 100%;
+$global-lineheight: 1.5;
+$global-margin: 1.5rem;
+$global-weight-normal: 400;
+
+// PALETTE COLORS
+$foundation-palette: (
+        primary: #2c594e,
+        secondary: orange,
+        sky: #eaf2f0,
+        sky-2: #e5eaed,
+        alert: #cc4b37
+);
+
+// MEDIA QUERY
+$breakpoints: (
+        small: 0,
+        medium: 1200px
+);
+
+// BUTTON GLOBAL STYLES
+$button-sizes: (
+        tiny: 0.6rem,
+        small: 0.75rem,
+        default: 1rem,
+        large: 1.25rem
+);
+
+//GRID
+$grid-container: 100%;
+$grid-margin-gutters: (
+        small: rem-calc(16),
+        medium: rem-calc(32)
+);
+$grid-container-padding: 0;
+
+// GLOBAL ELEMENTS

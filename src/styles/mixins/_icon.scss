@@ -1,0 +1,17 @@
+@mixin icon($icon, $font-styles: true) {
+  content: $icon;
+
+  @if $font-styles == true {
+    font: {
+      family: "icomoon";
+      style: normal;
+      weight: normal;
+      variant: normal;
+    }
+    speak: never;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
