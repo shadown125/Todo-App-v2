@@ -15,10 +15,15 @@
 
 // ELEMENTS
 @import "elements/base";
+@import "elements/headlines";
+@import "elements/icons";
 
 //COMPONENTS
 @import "components/grid";
+@import "components/main-navigation";
 @import "components/page-body";
+@import "components/page-header";
+@import "components/search-form";
 @import "components/wrapper";
 
 // TEMPLATES

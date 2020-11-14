@@ -19,7 +19,8 @@ $foundation-palette: (
 // MEDIA QUERY
 $breakpoints: (
         small: 0,
-        medium: 1200px
+        medium: 600px,
+        large: 1000px
 );
 
 // BUTTON GLOBAL STYLES
@@ -39,3 +40,12 @@ $grid-margin-gutters: (
 $grid-container-padding: 0;
 
 // GLOBAL ELEMENTS
+
+//HEADER
+$header-background-color: #2E3553;
+$header-icon-qq-color: #BA265D;
+$header-icon-color: white;
+$header-title-color: white;
+$header-search-input-color: #f0eeee;
+$header-search-input-background-color: #454d66;
+$header-search-input-placeholder-color: white;

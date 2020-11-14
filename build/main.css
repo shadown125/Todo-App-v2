@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Foundation for Sites
  * Version 6.6.3
@@ -217,7 +218,7 @@ template {
 
 /* line 140, node_modules/foundation-sites/scss/_global.scss */
 .foundation-mq {
-  font-family: "small=0em&medium=75em";
+  font-family: "small=0em&medium=37.5em&large=62.5em";
 }
 
 /* line 144, node_modules/foundation-sites/scss/_global.scss */
@@ -324,7 +325,15 @@ textarea {
   font-family: "open-sans";
   font-style: normal;
   font-weight: 400;
-  src: url("open-sans-v17-latin-regular.woff"), url("open-sans-v17-latin-regular.woff2");
+  src: url("open-sans-v18-latin-regular.woff"), url("open-sans-v18-latin-regular.woff2");
+}
+
+@font-face {
+  font-family: "icomoon";
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+  src: url("icomoon.woff?9xu6g5") format("woff"), url("icomoon.svg?9xu6g5#icomoon") format("svg");
 }
 
 /* line 1, src/styles/elements/_base.scss */
@@ -337,17 +346,173 @@ html {
   font-size: 87.5%;
 }
 
-@media print, screen and (min-width: 75em) {
+@media print, screen and (min-width: 37.5em) {
   /* line 5, src/styles/elements/_base.scss */
   html {
     font-size: 100%;
   }
 }
 
+/* line 1, src/styles/elements/_headlines.scss */
+h1 {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0.625rem;
+  margin-left: 0;
+}
+
+/* line 2, src/styles/components/_main-navigation.scss */
+.main-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+/* line 7, src/styles/mixins/_reset-list.scss */
+.main-navigation ul li {
+  margin: 0;
+}
+
+/* line 9, src/styles/mixins/_reset-list.scss */
+.main-navigation ul li::before {
+  content: none;
+}
+
+/* line 2, src/styles/components/_page-header.scss */
+.page-header .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #2E3553;
+  position: relative;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+/* line 15, src/styles/components/_page-header.scss */
+.page-header .container .headline {
+  position: relative;
+  padding-left: 2.625rem;
+  color: white;
+}
+
+/* line 21, src/styles/components/_page-header.scss */
+.page-header .container .headline::before {
+  content: "";
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #BA265D;
+  position: absolute;
+  top: 0.625rem;
+  left: 0;
+}
+
+/* line 30, src/styles/components/_page-header.scss */
+.page-header .container .button::before {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+}
+
+/* line 35, src/styles/components/_page-header.scss */
+.page-header .container .button-menu {
+  position: absolute;
+  top: 1.875rem;
+  left: 0.875rem;
+}
+
+/* line 4, src/styles/mixins/_button.scss */
+.page-header .container .button-menu:active, .page-header .container .button-menu:focus {
+  outline: none;
+}
+
+/* line 40, src/styles/components/_page-header.scss */
+.page-header .container .button-menu:hover {
+  cursor: pointer;
+}
+
+/* line 43, src/styles/components/_page-header.scss */
+.page-header .container .button-menu::before {
+  content: "";
+  font-size: 1.875rem;
+}
+
+/* line 1, src/styles/components/_search-form.scss */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* line 6, src/styles/components/_search-form.scss */
+.search-form .search-for-task {
+  width: 80%;
+  color: #f0eeee;
+  background-color: #454d66;
+  border: none;
+  padding: 0.4375rem 1.25rem;
+  border-radius: 6.25rem;
+  transition: width 0.1s linear;
+}
+
+/* line 18, src/styles/components/_search-form.scss */
+.search-form .search-for-task:-ms-input-placeholder {
+  color: white;
+}
+.search-form .search-for-task::placeholder {
+  color: white;
+}
+
+/* line 21, src/styles/components/_search-form.scss */
+.search-form .search-for-task:focus {
+  outline: none;
+  width: 90%;
+}
+
+/* line 25, src/styles/components/_search-form.scss */
+.search-form .search-for-task:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.search-form .search-for-task:focus::placeholder {
+  color: transparent;
+}
+
+/* line 29, src/styles/components/_search-form.scss */
+.search-form .button {
+  margin-left: -1.75rem;
+  padding: 0.375rem 0;
+}
+
+/* line 34, src/styles/components/_search-form.scss */
+.search-form .button::before {
+  content: "";
+  font-size: 1.25rem;
+}
+
+/* line 40, src/styles/components/_search-form.scss */
+.search-form .button:hover {
+  cursor: pointer;
+}
+
 /* line 1, src/styles/components/_wrapper.scss */
 .wrapper {
   max-width: 90rem;
   margin: 0 auto;
-  padding-right: 1.875rem;
-  padding-left: 1.875rem;
 }

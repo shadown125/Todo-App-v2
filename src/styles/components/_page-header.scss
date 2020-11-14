@@ -1,0 +1,51 @@
+.page-header {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        background: {
+            color: $header-background-color;
+        }
+        position: relative;
+        padding: {
+            top: rem-calc(20);
+            bottom: rem-calc(20);
+        }
+        .headline {
+            position: relative;
+            padding: {
+                left: rem-calc(42);
+            }
+            color: $header-title-color;
+            &::before {
+                @include icon($icon-qq);
+                color: $header-icon-qq-color;
+                position: absolute;
+                top: rem-calc(10);
+                left: 0;
+            }
+        }
+        .button {
+            &::before {
+                @include icon(null, true);
+                color: $header-icon-color;
+            }
+        }
+        .button-menu {
+            @include default-button-states();
+            position: absolute;
+            top: rem-calc(30);
+            left: rem-calc(14);
+            &:hover {
+                cursor: pointer;
+            }
+            &::before {
+                @include icon($icon-menu, false);
+                font: {
+                    size: rem-calc(30);
+                }
+            }
+        }
+    }
+}

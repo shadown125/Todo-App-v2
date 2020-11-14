@@ -21,18 +21,12 @@
     <script src="./build/main.js" defer></script>
 </head>
 <body>
-    <header class="page-header">
-        <div class="wrapper">
-            <div class="container">
-
-            </div>
-        </div>
-    </header>
+    <?php include('header.php'); ?>
     <main class="page-content">
         <div class="wrapper">
             <div class="container">
                 <div class="content">
-                        ldfskjas;lfj dafasdas sdfsa
+
                 </div>
             </div>
         </div>

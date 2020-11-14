@@ -1,0 +1,44 @@
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .search-for-task {
+        width: 80%;
+        color: $header-search-input-color;
+        background: {
+            color: $header-search-input-background-color;
+        }
+        border: none;
+        padding: rem-calc(7) rem-calc(20);
+        border: {
+            radius: rem-calc(100);
+        }
+        transition: width 0.1s linear;
+        &::placeholder {
+            color: $header-search-input-placeholder-color;
+        }
+        &:focus {
+            outline: none;
+            width: 90%;
+        }
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+    .button {
+        margin: {
+            left: rem-calc(-28);
+        }
+        padding: rem-calc(6) 0;
+        &::before {
+            @include icon($icon-magnifying-glass, false);
+            font: {
+                size: rem-calc(20);
+            }
+        }
+        &:hover {
+          cursor: pointer;
+        }
+    }
+}
