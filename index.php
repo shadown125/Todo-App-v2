@@ -26,11 +26,51 @@
         <div class="wrapper">
             <div class="container">
                 <?php include("main-navigation-sidebar.php"); ?>
-<!--                <div class="progression-content">-->
-<!---->
-<!--                </div>-->
-                <div class="todo-content">
+                <div class="content-container">
+                    <div class="progression-content">
 
+                    </div>
+                    <section class="todos">
+                        <div class="todos-header">
+                            <h3 class="h3 headline">In progression</h3>
+                            <a href="./" class="button"></a>
+                            <div class="description">Today</div>
+                        </div>
+                        <div class="todos-wrapper">
+                            <ul>
+                                <li>
+                                    <div class="header">
+                                        <div class="circle"></div>
+                                        <h3 class="h3 headline">My Todo</h3>
+                                        <button class="button-complete"></button>
+                                        <button class="button-edit"></button>
+                                        <button class="button-delete"></button>
+                                    </div>
+                                    <div class="description">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis elit sit amet nisi vulputate ornare. Etiam porttitor efficitur nisl, sed sagittis massa pharetra ut.
+                                        Cras bibendum magna vel est tempus tincidunt. Curabitur ac aliquam libero. Morbi imperdiet lacus nec dui dapibus, id ultricies lorem sagittis. Maecenas ultrices mattis augue.
+                                        Praesent ornare ornare elit a volutpat. Donec ac tincidunt purus. Pellentesque egestas elit sit amet blandit pretium.
+                                        Aliquam iaculis viverra neque ut vestibulum. Suspendisse potenti. Curabitur sed erat dapibus, cursus dolor auctor, convallis diam. Sed quam libero, euismod vitae consectetur at, gravida sit amet lectus.
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="header">
+                                        <div class="circle"></div>
+                                        <h3 class="h3 headline">My Todo</h3>
+                                        <button class="button-complete"></button>
+                                        <button class="button-edit"></button>
+                                        <button class="button-delete"></button>
+                                    </div>
+                                    <div class="description">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis elit sit amet nisi vulputate ornare. Etiam porttitor efficitur nisl, sed sagittis massa pharetra ut.
+                                        Cras bibendum magna vel est tempus tincidunt. Curabitur ac aliquam libero. Morbi imperdiet lacus nec dui dapibus, id ultricies lorem sagittis. Maecenas ultrices mattis augue.
+                                        Praesent ornare ornare elit a volutpat. Donec ac tincidunt purus. Pellentesque egestas elit sit amet blandit pretium.
+                                        Aliquam iaculis viverra neque ut vestibulum. Suspendisse potenti. Curabitur sed erat dapibus, cursus dolor auctor, convallis diam. Sed quam libero, euismod vitae consectetur at, gravida sit amet lectus.
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>

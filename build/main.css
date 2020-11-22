@@ -379,7 +379,6 @@ a:hover {
   flex-direction: column;
   max-width: 70%;
   height: 100%;
-  margin-left: -70%;
   padding: 1.25rem 1.25rem;
   background-image: linear-gradient(to right bottom, #2E3553, #4C4177);
   border-top-right-radius: 0.9375rem;
@@ -519,6 +518,16 @@ a:hover {
 .page-body .container {
   height: 37.5rem;
   background-color: #2a314f;
+  padding-bottom: 1.25rem;
+}
+
+/* line 10, src/styles/components/_page-body.scss */
+.page-body .container .content-container {
+  padding-top: 1.25rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* line 2, src/styles/components/_page-header.scss */
@@ -651,6 +660,362 @@ a:hover {
 /* line 40, src/styles/components/_search-form.scss */
 .search-form .button:hover {
   cursor: pointer;
+}
+
+/* line 1, src/styles/components/_todos.scss */
+.todos {
+  width: 100%;
+  height: 100%;
+  background-color: #4C4177;
+  border-radius: 0.9375rem;
+  padding: 1.125rem;
+}
+
+/* line 11, src/styles/components/_todos.scss */
+.todos .todos-header {
+  display: flex;
+  padding-bottom: 0.625rem;
+  border-bottom: 2px solid #999;
+}
+
+/* line 19, src/styles/components/_todos.scss */
+.todos .todos-header .button,
+.todos .todos-header .description {
+  position: relative;
+}
+
+/* line 22, src/styles/components/_todos.scss */
+.todos .todos-header .button::before,
+.todos .todos-header .description::before {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.625rem;
+}
+
+/* line 32, src/styles/components/_todos.scss */
+.todos .todos-header .headline {
+  color: white;
+}
+
+/* line 35, src/styles/components/_todos.scss */
+.todos .todos-header .button {
+  transition: transform 0.2s;
+  margin-right: 0.625rem;
+  margin-left: auto;
+  width: 1.625rem;
+  height: 1.625rem;
+}
+
+/* line 12, src/styles/mixins/_button.scss */
+.todos .todos-header .button::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 0.9375rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.4s, opacity 0.3s;
+  background-color: #26F596;
+}
+
+/* line 26, src/styles/mixins/_button.scss */
+.todos .todos-header .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* line 29, src/styles/mixins/_button.scss */
+.todos .todos-header .button:hover::after {
+  transform: scale(1.3);
+  opacity: 0;
+}
+
+/* line 43, src/styles/components/_todos.scss */
+.todos .todos-header .button::before {
+  content: "";
+  color: #26F596;
+}
+
+/* line 47, src/styles/components/_todos.scss */
+.todos .todos-header .button::after {
+  top: -1px;
+}
+
+/* line 51, src/styles/components/_todos.scss */
+.todos .todos-header .description {
+  color: white;
+  padding-left: 1.875rem;
+}
+
+/* line 56, src/styles/components/_todos.scss */
+.todos .todos-header .description::before {
+  content: "";
+  color: violet;
+}
+
+/* line 63, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 0.625rem;
+}
+
+/* line 7, src/styles/mixins/_reset-list.scss */
+.todos .todos-wrapper ul li {
+  margin: 0;
+}
+
+/* line 9, src/styles/mixins/_reset-list.scss */
+.todos .todos-wrapper ul li::before {
+  content: none;
+}
+
+/* line 68, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li {
+  margin-top: 0.625rem;
+}
+
+/* line 74, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li:first-child .header .circle {
+  background-color: #A4508B;
+}
+
+/* line 81, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 85, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header .circle {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.9375rem;
+  background-color: grey;
+  margin-right: 0.875rem;
+}
+
+/* line 98, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header .headline {
+  color: white;
+}
+
+/* line 101, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header button {
+  position: relative;
+  display: block;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 0.9375rem;
+}
+
+/* line 4, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header button:active, .todos .todos-wrapper ul li .header button:focus {
+  outline: none;
+}
+
+/* line 110, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header button::before {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 113, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header button:hover {
+  cursor: pointer;
+}
+
+/* line 117, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header .button-complete {
+  transition: transform 0.2s;
+  margin-left: auto;
+  background-color: #bca0ff;
+}
+
+/* line 12, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header .button-complete::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 0.9375rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.4s, opacity 0.3s;
+  background-color: #bca0ff;
+}
+
+/* line 26, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header .button-complete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* line 29, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header .button-complete:hover::after {
+  transform: scale(1.3);
+  opacity: 0;
+}
+
+/* line 125, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header .button-complete::before {
+  content: "";
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #26F596;
+}
+
+/* line 130, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header .button-delete,
+.todos .todos-wrapper ul li .header .button-edit {
+  margin-left: 1rem;
+}
+
+/* line 136, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header .button-edit {
+  transition: transform 0.2s;
+  background-color: #009FFD;
+}
+
+/* line 12, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header .button-edit::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 0.9375rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.4s, opacity 0.3s;
+  background-color: #009FFD;
+}
+
+/* line 26, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header .button-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* line 29, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header .button-edit:hover::after {
+  transform: scale(1.3);
+  opacity: 0;
+}
+
+/* line 141, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header .button-edit::before {
+  content: "";
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+}
+
+/* line 146, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header .button-delete {
+  transition: transform 0.2s;
+  background-color: #BA265D;
+  padding-top: 0.1875rem;
+  padding-right: 0.0625rem;
+}
+
+/* line 12, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header .button-delete::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 0.9375rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.4s, opacity 0.3s;
+  background-color: #BA265D;
+}
+
+/* line 26, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header .button-delete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* line 29, src/styles/mixins/_button.scss */
+.todos .todos-wrapper ul li .header .button-delete:hover::after {
+  transform: scale(1.3);
+  opacity: 0;
+}
+
+/* line 155, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .header .button-delete::before {
+  content: "";
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  font-size: 1.25rem;
+}
+
+/* line 164, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .description {
+  position: relative;
+  color: white;
+  margin-top: 0.5rem;
+  padding-left: 2.125rem;
+}
+
+/* line 173, src/styles/components/_todos.scss */
+.todos .todos-wrapper ul li .description::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0.5625rem;
+  width: 2px;
+  height: 100%;
+  border-width: 1px;
+  border-color: #999;
+  border-style: solid;
 }
 
 /* line 1, src/styles/components/_wrapper.scss */

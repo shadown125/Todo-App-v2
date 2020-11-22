@@ -5,9 +5,9 @@
         width: 70%;
     }
     height: 100%;
-    margin: {
-        left: -70%;
-    }
+    //margin: {
+    //    left: -70%;
+    //}
     padding: rem-calc(20) rem-calc(20);
     background: {
         image: linear-gradient(to right bottom, $main-navigation-background-image-first-gradient, $main-navigation-background-image-second-gradient);

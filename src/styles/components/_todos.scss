@@ -1,0 +1,190 @@
+.todos {
+    width: 100%;
+    height: 100%;
+    background: {
+        color: $todos-content-background-color;
+    }
+    border: {
+        radius: rem-calc(15);
+    }
+    padding: rem-calc(18);
+    .todos-header {
+        display: flex;
+        padding: {
+            bottom: rem-calc(10);
+        }
+        border: {
+            bottom: 2px solid $todos-header-border-bottom-color;
+        }
+        .button,
+        .description {
+            position: relative;
+            &::before {
+                @include icon(null, true);
+                position: absolute;
+                top: 0;
+                left: 0;
+                font: {
+                    size: rem-calc(26);
+                }
+            }
+        }
+        .headline {
+            color: $todos-header-headline-color;
+        }
+        .button {
+            @include custom-button($todos-header-after-background-color);
+            margin: {
+                right: rem-calc(10);
+                left: auto;
+            }
+            width: rem-calc(26);
+            height: rem-calc(26);
+            &::before {
+                @include icon($icon-circle-with-plus, false);
+                color: $todos-header-before-icon-color;
+            }
+            &::after {
+                top: -1px;
+            }
+        }
+        .description {
+            color: $todos-header-description-color;
+            padding: {
+                left: rem-calc(30);
+            }
+            &::before {
+                @include icon($icon-sticky-note, false);
+                color: $todos-header-description-icon-color;
+            }
+        }
+    }
+    .todos-wrapper {
+        ul {
+            @include reset-list();
+            margin: {
+                top: rem-calc(10);
+            }
+            li {
+                margin: {
+                    top: rem-calc(10);
+                }
+                &:first-child {
+                    .header {
+                        .circle {
+                            background: {
+                                color: $todos-circle-background-color;
+                            }
+                        }
+                    }
+                }
+                .header {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .circle {
+                        width: rem-calc(20);
+                        height: rem-calc(20);
+                        border: {
+                            radius: rem-calc(15);
+                        }
+                        background: {
+                            color: $todos-circle-default-background-color;
+                        }
+                        margin: {
+                            right: rem-calc(14);
+                        }
+                    }
+                    .headline {
+                        color: $todos-headline-color;
+                    }
+                    button {
+                        position: relative;
+                        display: block;
+                        @include default-button-states();
+                        width: rem-calc(26);
+                        height: rem-calc(26);
+                        border: {
+                            radius: rem-calc(15);
+                        }
+                        &::before {
+                            @include icon(null, true);
+                        }
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                    .button-complete {
+                        @include custom-button($todos-button-complete-background-color);
+                        margin: {
+                            left: auto;
+                        }
+                        background: {
+                            color: $todos-button-complete-background-color;
+                        }
+                        &::before {
+                            @include icon($icon-check, true);
+                            color: $todos-button-complete-icon-color;
+                        }
+                    }
+                    .button-delete,
+                    .button-edit {
+                        margin: {
+                            left: rem-calc(16);
+                        }
+                    }
+                    .button-edit {
+                        @include custom-button($todos-button-edit-background-color);
+                        background: {
+                            color: $todos-button-edit-background-color
+                        }
+                        &::before {
+                            @include icon($icon-bubble, true);
+                            color: $todos-button-edit-icon-color;
+                        }
+                    }
+                    .button-delete {
+                        @include custom-button($todos-button-delete-background-color);
+                        background: {
+                            color: $todos-button-delete-background-color;
+                        }
+                        padding: {
+                            top: rem-calc(3);
+                            right: rem-calc(1);
+                        }
+                        &::before {
+                            @include icon($icon-cross, true);
+                            color: $todos-button-delete-icon-color;
+                            font: {
+                                size: rem-calc(20);
+                            }
+                        }
+                    }
+                }
+                .description {
+                    position: relative;
+                    color: $todos-description-color;
+                    margin: {
+                        top: rem-calc(8);
+                    }
+                    padding: {
+                        left: rem-calc(34);
+                    }
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: rem-calc(9);
+                        width: 2px;
+                        height: 100%;
+                        border: {
+                            width: 1px;
+                            color: $todos-description-border-color;
+                            style: solid;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
