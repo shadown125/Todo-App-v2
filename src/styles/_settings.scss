@@ -40,6 +40,8 @@ $grid-margin-gutters: (
 $grid-container-padding: 0;
 
 // GLOBAL ELEMENTS
+$link-color: white;
+$link-hover-color: #4062BB;
 
 //HEADER
 $header-background-color: #2E3553;
@@ -49,3 +51,15 @@ $header-title-color: white;
 $header-search-input-color: #f0eeee;
 $header-search-input-background-color: #454d66;
 $header-search-input-placeholder-color: white;
+// MAIN-NAVIGATION SIDEBAR
+$main-navigation-background-image-first-gradient: #2E3553;
+$main-navigation-background-image-second-gradient: #4C4177;
+$main-navigation-li-color: white;
+$main-navigation-after-icon-today-background-image-first-gradient: #5F0A87;
+$main-navigation-after-icon-today-background-image-second-gradient: #A4508B;
+$main-navigation-after-icon-done-todos-background-image-first-gradient: #380036;
+$main-navigation-after-icon-done-todos-background-image-second-gradient: #0CBABA;
+// ASIDE
+$aside-copyright-paragraph-color: white;
+// PAGE BODY
+$page-body-background-color: #2a314f;

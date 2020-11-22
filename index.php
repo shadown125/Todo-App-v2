@@ -22,10 +22,14 @@
 </head>
 <body>
     <?php include('header.php'); ?>
-    <main class="page-content">
+    <main class="page-body">
         <div class="wrapper">
             <div class="container">
-                <div class="content">
+                <?php include("main-navigation-sidebar.php"); ?>
+<!--                <div class="progression-content">-->
+<!---->
+<!--                </div>-->
+                <div class="todo-content">
 
                 </div>
             </div>

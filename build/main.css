@@ -361,22 +361,164 @@ h1 {
   margin-left: 0;
 }
 
-/* line 2, src/styles/components/_main-navigation.scss */
-.main-navigation ul {
+/* line 1, src/styles/elements/_link.scss */
+a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s linear;
+}
+
+/* line 7, src/styles/elements/_link.scss */
+a:hover {
+  color: #4062BB;
+}
+
+/* line 1, src/styles/components/_main-navigation.scss */
+.aside-navigation {
+  display: none;
+  flex-direction: column;
+  max-width: 70%;
+  height: 100%;
+  margin-left: -70%;
+  padding: 1.25rem 1.25rem;
+  background-image: linear-gradient(to right bottom, #2E3553, #4C4177);
+  border-top-right-radius: 0.9375rem;
+  border-bottom-right-radius: 0.9375rem;
+}
+
+/* line 18, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  position: absolute;
+  padding-bottom: 1rem;
 }
 
 /* line 7, src/styles/mixins/_reset-list.scss */
-.main-navigation ul li {
+.aside-navigation .main-navigation ul li {
   margin: 0;
 }
 
 /* line 9, src/styles/mixins/_reset-list.scss */
-.main-navigation ul li::before {
+.aside-navigation .main-navigation ul li::before {
   content: none;
+}
+
+/* line 23, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li {
+  color: white;
+  position: relative;
+}
+
+/* line 26, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li:first-child {
+  margin-bottom: 1.875rem;
+}
+
+/* line 30, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li:first-child .profile-container {
+  display: flex;
+}
+
+/* line 32, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li:first-child .profile-container img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+/* line 42, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li:first-child .profile-container .profile-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 47, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li:first-child .profile-container .profile-information div:last-child {
+  margin-top: 0.375rem;
+}
+
+/* line 56, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li:not(:first-child) {
+  padding-left: 3.125rem;
+}
+
+/* line 61, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li:not(:first-child) a::after {
+  content: "";
+  width: 2.25rem;
+  height: 2.25rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+}
+
+/* line 75, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li:not(:last-child) a {
+  padding-bottom: 1.875rem;
+}
+
+/* line 81, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li a {
+  display: flex;
+  padding-top: 0.25rem;
+}
+
+/* line 86, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul li a::before {
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  top: 0.625rem;
+  left: 0.625rem;
+  font-size: 1.25rem;
+  z-index: 1;
+}
+
+/* line 100, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul .today a::before {
+  content: "";
+}
+
+/* line 103, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul .today a::after {
+  background-image: linear-gradient(to right bottom, #5F0A87, #A4508B);
+}
+
+/* line 112, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul .done-todos a::before {
+  content: "";
+  font-size: 1.5rem;
+  top: 0.375rem;
+  left: 0.4375rem;
+}
+
+/* line 120, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation ul .done-todos a::after {
+  background-image: linear-gradient(to right bottom, #380036, #0CBABA);
+}
+
+/* line 129, src/styles/components/_main-navigation.scss */
+.aside-navigation .copyright {
+  display: block;
+  margin-top: auto;
+  color: white;
+}
+
+/* line 2, src/styles/components/_page-body.scss */
+.page-body .container {
+  height: 37.5rem;
+  background-color: #2a314f;
 }
 
 /* line 2, src/styles/components/_page-header.scss */

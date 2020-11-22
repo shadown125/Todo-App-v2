@@ -1,9 +1,136 @@
-.main-navigation {
-    ul {
-        @include reset-list();
-        position: absolute;
-        li {
-
+.aside-navigation {
+    display: none;
+    flex-direction: column;
+    max: {
+        width: 70%;
+    }
+    height: 100%;
+    margin: {
+        left: -70%;
+    }
+    padding: rem-calc(20) rem-calc(20);
+    background: {
+        image: linear-gradient(to right bottom, $main-navigation-background-image-first-gradient, $main-navigation-background-image-second-gradient);
+    }
+    border-top-right-radius: rem-calc(15);
+    border-bottom-right-radius: rem-calc(15);
+    .main-navigation {
+        ul {
+            @include reset-list();
+            padding: {
+                bottom: rem-calc(16);
+            }
+            li {
+                color: $main-navigation-li-color;
+                position: relative;
+                &:first-child {
+                    margin: {
+                        bottom: rem-calc(30);
+                    }
+                    .profile-container {
+                        display: flex;
+                        img {
+                            width: rem-calc(80);
+                            height: rem-calc(80);
+                            border: {
+                                radius: 50%;
+                            }
+                            margin: {
+                                right: rem-calc(16);
+                            }
+                        }
+                        .profile-information {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            div {
+                                &:last-child {
+                                    margin: {
+                                        top: rem-calc(6);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &:not(:first-child) {
+                    padding: {
+                        left: rem-calc(50);
+                    }
+                    a {
+                        &::after {
+                            content: "";
+                            width: rem-calc(36);
+                            height: rem-calc(36);
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            border: {
+                                radius: 50%;
+                            }
+                        }
+                    }
+                }
+                &:not(:last-child) {
+                    a {
+                        padding: {
+                            bottom: rem-calc(30);
+                        }
+                    }
+                }
+                a {
+                    display: flex;
+                    padding: {
+                        top: rem-calc(4);
+                    }
+                    &::before {
+                        @include icon(null, true);
+                        position: absolute;
+                        top: rem-calc(10);
+                        left: rem-calc(10);
+                        font: {
+                            size: rem-calc(20);
+                        }
+                        z-index: 1;
+                    }
+                }
+            }
+            .today {
+                a {
+                    &::before {
+                        @include icon($icon-sticky-note, false);
+                    }
+                    &::after {
+                        background: {
+                            image: linear-gradient(to right bottom, $main-navigation-after-icon-today-background-image-first-gradient, $main-navigation-after-icon-today-background-image-second-gradient);
+                        }
+                    }
+                }
+            }
+            .done-todos {
+                a {
+                    &::before {
+                        @include icon($icon-note-checked, false);
+                        font: {
+                            size: rem-calc(24);
+                        }
+                        top: rem-calc(6);
+                        left: rem-calc(7);
+                    }
+                    &::after {
+                        background: {
+                            image: linear-gradient(to right bottom, $main-navigation-after-icon-done-todos-background-image-first-gradient, $main-navigation-after-icon-done-todos-background-image-second-gradient);
+                        }
+                    }
+                }
+            }
         }
+    }
+    .copyright {
+        display: block;
+        margin: {
+            top: auto;
+        }
+        color: $aside-copyright-paragraph-color;
     }
 }
