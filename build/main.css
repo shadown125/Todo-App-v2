@@ -376,16 +376,20 @@ a:hover {
 /* line 1, src/styles/components/_main-navigation.scss */
 .aside-navigation {
   display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
   flex-direction: column;
-  max-width: 70%;
+  width: 18.75rem;
   height: 100%;
   padding: 1.25rem 1.25rem;
   background-image: linear-gradient(to right bottom, #2E3553, #4C4177);
   border-top-right-radius: 0.9375rem;
   border-bottom-right-radius: 0.9375rem;
+  z-index: 1;
 }
 
-/* line 18, src/styles/components/_main-navigation.scss */
+/* line 17, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul {
   list-style: none;
   margin: 0;
@@ -403,23 +407,23 @@ a:hover {
   content: none;
 }
 
-/* line 23, src/styles/components/_main-navigation.scss */
+/* line 22, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li {
   color: white;
   position: relative;
 }
 
-/* line 26, src/styles/components/_main-navigation.scss */
+/* line 25, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child {
   margin-bottom: 1.875rem;
 }
 
-/* line 30, src/styles/components/_main-navigation.scss */
+/* line 29, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child .profile-container {
   display: flex;
 }
 
-/* line 32, src/styles/components/_main-navigation.scss */
+/* line 31, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child .profile-container img {
   width: 5rem;
   height: 5rem;
@@ -427,24 +431,24 @@ a:hover {
   margin-right: 1rem;
 }
 
-/* line 42, src/styles/components/_main-navigation.scss */
+/* line 41, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child .profile-container .profile-information {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* line 47, src/styles/components/_main-navigation.scss */
+/* line 46, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child .profile-container .profile-information div:last-child {
   margin-top: 0.375rem;
 }
 
-/* line 56, src/styles/components/_main-navigation.scss */
+/* line 55, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:not(:first-child) {
   padding-left: 3.125rem;
 }
 
-/* line 61, src/styles/components/_main-navigation.scss */
+/* line 60, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:not(:first-child) a::after {
   content: "";
   width: 2.25rem;
@@ -455,18 +459,18 @@ a:hover {
   border-radius: 50%;
 }
 
-/* line 75, src/styles/components/_main-navigation.scss */
+/* line 74, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:not(:last-child) a {
   padding-bottom: 1.875rem;
 }
 
-/* line 81, src/styles/components/_main-navigation.scss */
+/* line 80, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li a {
   display: flex;
   padding-top: 0.25rem;
 }
 
-/* line 86, src/styles/components/_main-navigation.scss */
+/* line 85, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li a::before {
   font-family: "icomoon";
   font-style: normal;
@@ -484,17 +488,17 @@ a:hover {
   z-index: 1;
 }
 
-/* line 100, src/styles/components/_main-navigation.scss */
+/* line 99, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul .today a::before {
   content: "";
 }
 
-/* line 103, src/styles/components/_main-navigation.scss */
+/* line 102, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul .today a::after {
   background-image: linear-gradient(to right bottom, #5F0A87, #A4508B);
 }
 
-/* line 112, src/styles/components/_main-navigation.scss */
+/* line 111, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul .done-todos a::before {
   content: "";
   font-size: 1.5rem;
@@ -502,12 +506,12 @@ a:hover {
   left: 0.4375rem;
 }
 
-/* line 120, src/styles/components/_main-navigation.scss */
+/* line 119, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul .done-todos a::after {
   background-image: linear-gradient(to right bottom, #380036, #0CBABA);
 }
 
-/* line 129, src/styles/components/_main-navigation.scss */
+/* line 128, src/styles/components/_main-navigation.scss */
 .aside-navigation .copyright {
   display: block;
   margin-top: auto;
@@ -516,18 +520,18 @@ a:hover {
 
 /* line 2, src/styles/components/_page-body.scss */
 .page-body .container {
-  height: 37.5rem;
+  position: relative;
+  height: 45.9375rem;
   background-color: #2a314f;
   padding-bottom: 1.25rem;
 }
 
-/* line 10, src/styles/components/_page-body.scss */
+/* line 11, src/styles/components/_page-body.scss */
 .page-body .container .content-container {
   padding-top: 1.25rem;
   padding-right: 1.25rem;
   padding-left: 1.25rem;
   height: 100%;
-  overflow: hidden;
 }
 
 /* line 2, src/styles/components/_page-header.scss */
@@ -669,22 +673,36 @@ a:hover {
   background-color: #4C4177;
   border-radius: 0.9375rem;
   padding: 1.125rem;
+  overflow-y: auto;
 }
 
-/* line 11, src/styles/components/_todos.scss */
+/* line 12, src/styles/components/_todos.scss */
+.todos::-webkit-scrollbar {
+  width: 1.75rem;
+}
+
+/* line 15, src/styles/components/_todos.scss */
+.todos::-webkit-scrollbar-thumb {
+  border: 10px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  background-color: #999;
+  border-radius: 0.9375rem;
+}
+
+/* line 25, src/styles/components/_todos.scss */
 .todos .todos-header {
   display: flex;
   padding-bottom: 0.625rem;
   border-bottom: 2px solid #999;
 }
 
-/* line 19, src/styles/components/_todos.scss */
+/* line 33, src/styles/components/_todos.scss */
 .todos .todos-header .button,
 .todos .todos-header .description {
   position: relative;
 }
 
-/* line 22, src/styles/components/_todos.scss */
+/* line 36, src/styles/components/_todos.scss */
 .todos .todos-header .button::before,
 .todos .todos-header .description::before {
   font-family: "icomoon";
@@ -702,12 +720,12 @@ a:hover {
   font-size: 1.625rem;
 }
 
-/* line 32, src/styles/components/_todos.scss */
+/* line 46, src/styles/components/_todos.scss */
 .todos .todos-header .headline {
   color: white;
 }
 
-/* line 35, src/styles/components/_todos.scss */
+/* line 49, src/styles/components/_todos.scss */
 .todos .todos-header .button {
   transition: transform 0.2s;
   margin-right: 0.625rem;
@@ -742,30 +760,30 @@ a:hover {
   opacity: 0;
 }
 
-/* line 43, src/styles/components/_todos.scss */
+/* line 57, src/styles/components/_todos.scss */
 .todos .todos-header .button::before {
   content: "";
   color: #26F596;
 }
 
-/* line 47, src/styles/components/_todos.scss */
+/* line 61, src/styles/components/_todos.scss */
 .todos .todos-header .button::after {
   top: -1px;
 }
 
-/* line 51, src/styles/components/_todos.scss */
+/* line 65, src/styles/components/_todos.scss */
 .todos .todos-header .description {
   color: white;
   padding-left: 1.875rem;
 }
 
-/* line 56, src/styles/components/_todos.scss */
+/* line 70, src/styles/components/_todos.scss */
 .todos .todos-header .description::before {
   content: "";
   color: violet;
 }
 
-/* line 63, src/styles/components/_todos.scss */
+/* line 77, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul {
   list-style: none;
   margin: 0;
@@ -783,24 +801,24 @@ a:hover {
   content: none;
 }
 
-/* line 68, src/styles/components/_todos.scss */
+/* line 82, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li {
   margin-top: 0.625rem;
 }
 
-/* line 74, src/styles/components/_todos.scss */
+/* line 88, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li:first-child .header .circle {
   background-color: #A4508B;
 }
 
-/* line 81, src/styles/components/_todos.scss */
+/* line 95, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* line 85, src/styles/components/_todos.scss */
+/* line 99, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .circle {
   width: 1.25rem;
   height: 1.25rem;
@@ -809,12 +827,12 @@ a:hover {
   margin-right: 0.875rem;
 }
 
-/* line 98, src/styles/components/_todos.scss */
+/* line 112, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .headline {
   color: white;
 }
 
-/* line 101, src/styles/components/_todos.scss */
+/* line 115, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button {
   position: relative;
   display: block;
@@ -828,7 +846,7 @@ a:hover {
   outline: none;
 }
 
-/* line 110, src/styles/components/_todos.scss */
+/* line 124, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button::before {
   font-family: "icomoon";
   font-style: normal;
@@ -841,12 +859,12 @@ a:hover {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 113, src/styles/components/_todos.scss */
+/* line 127, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button:hover {
   cursor: pointer;
 }
 
-/* line 117, src/styles/components/_todos.scss */
+/* line 131, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-complete {
   transition: transform 0.2s;
   margin-left: auto;
@@ -879,7 +897,7 @@ a:hover {
   opacity: 0;
 }
 
-/* line 125, src/styles/components/_todos.scss */
+/* line 139, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-complete::before {
   content: "";
   font-family: "icomoon";
@@ -894,13 +912,13 @@ a:hover {
   color: #26F596;
 }
 
-/* line 130, src/styles/components/_todos.scss */
+/* line 144, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete,
 .todos .todos-wrapper ul li .header .button-edit {
   margin-left: 1rem;
 }
 
-/* line 136, src/styles/components/_todos.scss */
+/* line 150, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-edit {
   transition: transform 0.2s;
   background-color: #009FFD;
@@ -932,7 +950,7 @@ a:hover {
   opacity: 0;
 }
 
-/* line 141, src/styles/components/_todos.scss */
+/* line 155, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-edit::before {
   content: "";
   font-family: "icomoon";
@@ -947,7 +965,7 @@ a:hover {
   color: white;
 }
 
-/* line 146, src/styles/components/_todos.scss */
+/* line 160, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete {
   transition: transform 0.2s;
   background-color: #BA265D;
@@ -981,7 +999,7 @@ a:hover {
   opacity: 0;
 }
 
-/* line 155, src/styles/components/_todos.scss */
+/* line 169, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete::before {
   content: "";
   font-family: "icomoon";
@@ -997,7 +1015,7 @@ a:hover {
   font-size: 1.25rem;
 }
 
-/* line 164, src/styles/components/_todos.scss */
+/* line 178, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .description {
   position: relative;
   color: white;
@@ -1005,7 +1023,7 @@ a:hover {
   padding-left: 2.125rem;
 }
 
-/* line 173, src/styles/components/_todos.scss */
+/* line 187, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .description::before {
   content: "";
   position: absolute;

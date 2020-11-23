@@ -3,7 +3,7 @@
         <ul>
             <li>
                 <div class="profile-container">
-                    <img src="./src/pics/img-2.jpg" alt="profile image">
+                    <img src="src/pics/img-2.jpg" alt="profile image">
                     <div class="profile-information">
                         <div>My name</div>
                         <div>My Profession</div>
