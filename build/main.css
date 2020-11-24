@@ -336,6 +336,28 @@ textarea {
   src: url("icomoon.woff?9xu6g5") format("woff"), url("icomoon.svg?9xu6g5#icomoon") format("svg");
 }
 
+/* line 1, src/styles/elements/_background-blur.scss */
+.background-blur {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: background-color 0.3s, -webkit-backdrop-filter 0.3s;
+  transition: backdrop-filter 0.3s, background-color 0.3s;
+  transition: backdrop-filter 0.3s, background-color 0.3s, -webkit-backdrop-filter 0.3s;
+}
+
+@supports ((-webkit-backdrop-filter: blur(0.625rem)) or (backdrop-filter: blur(0.625rem))) {
+  /* line 1, src/styles/elements/_background-blur.scss */
+  .background-blur {
+    -webkit-backdrop-filter: blur(0.625rem);
+    backdrop-filter: blur(0.625rem);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
 /* line 1, src/styles/elements/_base.scss */
 * {
   margin: 0;
@@ -376,20 +398,31 @@ a:hover {
 /* line 1, src/styles/components/_main-navigation.scss */
 .aside-navigation {
   display: none;
+  flex-direction: column;
   position: absolute;
   top: 0;
-  left: 0;
-  flex-direction: column;
+  left: -18.75rem;
   width: 18.75rem;
   height: 100%;
   padding: 1.25rem 1.25rem;
   background-image: linear-gradient(to right bottom, #2E3553, #4C4177);
   border-top-right-radius: 0.9375rem;
   border-bottom-right-radius: 0.9375rem;
-  z-index: 1;
+  transition: left 0.3s linear;
+  z-index: 2;
 }
 
 /* line 17, src/styles/components/_main-navigation.scss */
+.aside-navigation.flex {
+  display: flex;
+}
+
+/* line 20, src/styles/components/_main-navigation.scss */
+.aside-navigation.is-active {
+  left: 0;
+}
+
+/* line 24, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul {
   list-style: none;
   margin: 0;
@@ -407,23 +440,23 @@ a:hover {
   content: none;
 }
 
-/* line 22, src/styles/components/_main-navigation.scss */
+/* line 29, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li {
   color: white;
   position: relative;
 }
 
-/* line 25, src/styles/components/_main-navigation.scss */
+/* line 32, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child {
   margin-bottom: 1.875rem;
 }
 
-/* line 29, src/styles/components/_main-navigation.scss */
+/* line 36, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child .profile-container {
   display: flex;
 }
 
-/* line 31, src/styles/components/_main-navigation.scss */
+/* line 38, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child .profile-container img {
   width: 5rem;
   height: 5rem;
@@ -431,24 +464,24 @@ a:hover {
   margin-right: 1rem;
 }
 
-/* line 41, src/styles/components/_main-navigation.scss */
+/* line 48, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child .profile-container .profile-information {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* line 46, src/styles/components/_main-navigation.scss */
+/* line 53, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:first-child .profile-container .profile-information div:last-child {
   margin-top: 0.375rem;
 }
 
-/* line 55, src/styles/components/_main-navigation.scss */
+/* line 62, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:not(:first-child) {
   padding-left: 3.125rem;
 }
 
-/* line 60, src/styles/components/_main-navigation.scss */
+/* line 67, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:not(:first-child) a::after {
   content: "";
   width: 2.25rem;
@@ -459,18 +492,18 @@ a:hover {
   border-radius: 50%;
 }
 
-/* line 74, src/styles/components/_main-navigation.scss */
+/* line 81, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li:not(:last-child) a {
   padding-bottom: 1.875rem;
 }
 
-/* line 80, src/styles/components/_main-navigation.scss */
+/* line 87, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li a {
   display: flex;
   padding-top: 0.25rem;
 }
 
-/* line 85, src/styles/components/_main-navigation.scss */
+/* line 92, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul li a::before {
   font-family: "icomoon";
   font-style: normal;
@@ -488,17 +521,17 @@ a:hover {
   z-index: 1;
 }
 
-/* line 99, src/styles/components/_main-navigation.scss */
+/* line 106, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul .today a::before {
   content: "";
 }
 
-/* line 102, src/styles/components/_main-navigation.scss */
+/* line 109, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul .today a::after {
   background-image: linear-gradient(to right bottom, #5F0A87, #A4508B);
 }
 
-/* line 111, src/styles/components/_main-navigation.scss */
+/* line 118, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul .done-todos a::before {
   content: "";
   font-size: 1.5rem;
@@ -506,12 +539,12 @@ a:hover {
   left: 0.4375rem;
 }
 
-/* line 119, src/styles/components/_main-navigation.scss */
+/* line 126, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul .done-todos a::after {
   background-image: linear-gradient(to right bottom, #380036, #0CBABA);
 }
 
-/* line 128, src/styles/components/_main-navigation.scss */
+/* line 135, src/styles/components/_main-navigation.scss */
 .aside-navigation .copyright {
   display: block;
   margin-top: auto;
@@ -830,9 +863,17 @@ a:hover {
 /* line 112, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .headline {
   color: white;
+  max-width: 50%;
 }
 
-/* line 115, src/styles/components/_todos.scss */
+@media print, screen and (min-width: 37.5em) {
+  /* line 112, src/styles/components/_todos.scss */
+  .todos .todos-wrapper ul li .header .headline {
+    max-width: 75%;
+  }
+}
+
+/* line 123, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button {
   position: relative;
   display: block;
@@ -846,7 +887,7 @@ a:hover {
   outline: none;
 }
 
-/* line 124, src/styles/components/_todos.scss */
+/* line 132, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button::before {
   font-family: "icomoon";
   font-style: normal;
@@ -859,12 +900,12 @@ a:hover {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 127, src/styles/components/_todos.scss */
+/* line 135, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button:hover {
   cursor: pointer;
 }
 
-/* line 131, src/styles/components/_todos.scss */
+/* line 139, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-complete {
   transition: transform 0.2s;
   margin-left: auto;
@@ -897,28 +938,19 @@ a:hover {
   opacity: 0;
 }
 
-/* line 139, src/styles/components/_todos.scss */
+/* line 147, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-complete::before {
   content: "";
-  font-family: "icomoon";
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  speak: never;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: #26F596;
 }
 
-/* line 144, src/styles/components/_todos.scss */
+/* line 152, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete,
 .todos .todos-wrapper ul li .header .button-edit {
   margin-left: 1rem;
 }
 
-/* line 150, src/styles/components/_todos.scss */
+/* line 158, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-edit {
   transition: transform 0.2s;
   background-color: #009FFD;
@@ -950,22 +982,13 @@ a:hover {
   opacity: 0;
 }
 
-/* line 155, src/styles/components/_todos.scss */
+/* line 163, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-edit::before {
   content: "";
-  font-family: "icomoon";
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  speak: never;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: white;
 }
 
-/* line 160, src/styles/components/_todos.scss */
+/* line 168, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete {
   transition: transform 0.2s;
   background-color: #BA265D;
@@ -999,23 +1022,14 @@ a:hover {
   opacity: 0;
 }
 
-/* line 169, src/styles/components/_todos.scss */
+/* line 177, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete::before {
   content: "";
-  font-family: "icomoon";
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  speak: never;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: white;
   font-size: 1.25rem;
 }
 
-/* line 178, src/styles/components/_todos.scss */
+/* line 186, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .description {
   position: relative;
   color: white;
@@ -1023,7 +1037,7 @@ a:hover {
   padding-left: 2.125rem;
 }
 
-/* line 187, src/styles/components/_todos.scss */
+/* line 195, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .description::before {
   content: "";
   position: absolute;

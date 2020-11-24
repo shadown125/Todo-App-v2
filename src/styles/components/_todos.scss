@@ -8,6 +8,20 @@
         radius: rem-calc(15);
     }
     padding: rem-calc(18);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: rem-calc(28);
+    }
+    &::-webkit-scrollbar-thumb {
+        border: 10px solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        background:{
+            color: $todos-scrollbar-background-color;
+        }
+        border: {
+            radius: rem-calc(15);
+        }
+    }
     .todos-header {
         display: flex;
         padding: {
@@ -97,6 +111,14 @@
                     }
                     .headline {
                         color: $todos-headline-color;
+                        max: {
+                            width: 50%;
+                        }
+                        @include breakpoint(medium) {
+                            max: {
+                                width: 75%;
+                            }
+                        }
                     }
                     button {
                         position: relative;
@@ -123,7 +145,7 @@
                             color: $todos-button-complete-background-color;
                         }
                         &::before {
-                            @include icon($icon-check, true);
+                            @include icon($icon-check, false);
                             color: $todos-button-complete-icon-color;
                         }
                     }
@@ -139,7 +161,7 @@
                             color: $todos-button-edit-background-color
                         }
                         &::before {
-                            @include icon($icon-bubble, true);
+                            @include icon($icon-bubble, false);
                             color: $todos-button-edit-icon-color;
                         }
                     }
@@ -153,7 +175,7 @@
                             right: rem-calc(1);
                         }
                         &::before {
-                            @include icon($icon-cross, true);
+                            @include icon($icon-cross, false);
                             color: $todos-button-delete-icon-color;
                             font: {
                                 size: rem-calc(20);

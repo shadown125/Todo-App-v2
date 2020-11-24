@@ -31,13 +31,7 @@
             </div>
         </div>
     </div>
+    <div class="blur"></div>
 </main>
-<footer class="page-footer">
-    <div class="wrapper">
-        <div class="container">
-
-        </div>
-    </div>
-</footer>
 </body>
 </html>

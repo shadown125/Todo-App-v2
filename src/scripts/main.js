@@ -1,3 +1,3 @@
-import addTask from './AddTask';
+import ToggleAsideNavigation from './ToggleAsideNavigation';
 
-new addTask();
+new ToggleAsideNavigation();
