@@ -1,0 +1,106 @@
+.todo-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(black, 0.8);
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+    &:target .content {
+        opacity: 1;
+        transform: scale(1);
+    }
+    @include backdrop-filter();
+    .content {
+        padding: rem-calc(16);
+        height: rem-calc(350);
+        width: 85%;
+        background-color: $todo-popup-background-color;
+        box-shadow: 0 rem-calc(32) rem-calc(64) rgba(black, 0.2);
+        border-radius: 15px;
+        overflow: hidden;
+        opacity: 0;
+        transform: scale(0.25);
+        transition: all 0.5s 0.2s;
+        .button {
+            display: flex;
+            justify-content: flex-end;
+            width: 0;
+            margin: {
+                left: auto;
+            }
+            &::before {
+                @include icon($icon-cancel-circle);
+                font: {
+                    size: rem-calc(26);
+                }
+            }
+        }
+        .add-todo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 90%;
+            div {
+                display: flex;
+                flex-direction: column;
+                margin: {
+                    top: rem-calc(16);
+                }
+                &:nth-child(2) {
+                    height: 100%;
+                    .description {
+                        height: 100%;
+                    }
+                }
+                label {
+                    color: $todo-popup-label-color;
+                    margin: {
+                        bottom: rem-calc(6);
+                    }
+                }
+                .title {
+                    @include custom-search-input();
+                }
+                .description {
+                    font: {
+                        size: rem-calc(16);
+                    }
+                    color: $todo-popup-textarea-color;
+                    height: 100%;
+                    padding: rem-calc(7) rem-calc(20);
+                    border: {
+                        radius: rem-calc(15);
+                    }
+                    background: {
+                        color: $todo-popup-textarea-background-color;
+                    }
+                    border: none;
+                    resize: none;
+                    outline: none;
+                    &:focus::placeholder {
+                        color: transparent;
+                    }
+                    @include custom-scrollbar();
+                }
+                button {
+                    @include default-button-states();
+                    @include custom-big-button();
+                    margin: {
+                        left: auto;
+                    }
+                }
+            }
+        }
+    }
+}

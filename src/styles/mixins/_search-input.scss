@@ -1,0 +1,22 @@
+@mixin custom-search-input($width: 100%, $color: #7B8797, $background-color: white) {
+    width: $width;
+    color: $color;
+    background: {
+        color: $background-color;
+    }
+    border: none;
+    padding: rem-calc(7) rem-calc(20);
+    border: {
+        radius: rem-calc(100);
+    }
+    transition: width 0.1s linear;
+    &::placeholder {
+        color: $color;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:focus::placeholder {
+        color: transparent;
+    }
+}

@@ -32,3 +32,49 @@
         }
     }
 }
+
+@mixin custom-big-button($color: white, $background-color: #A4508B) {
+    display: block;
+    position: relative;
+    text: {
+        transform: uppercase;
+    }
+    border: {
+        radius: rem-calc(100);
+    }
+    padding: rem-calc(12) rem-calc(28);
+    transition: transform 0.2s, opacity 0.2s;
+    cursor: pointer;
+    color: $color;
+    background: {
+        color: $background-color;
+    }
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 rem-calc(16) rem-calc(32) rgba(black, 0.2);
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    &:active,
+    &:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 rem-calc(8) rem-calc(16) rgba(black, 0.2);
+    }
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border: {
+            radius: rem-calc(100);
+        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: transform 0.4s, opacity 0.4s;
+        background-color: $background-color;
+    }
+}

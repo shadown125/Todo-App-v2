@@ -4,27 +4,7 @@
     align-items: center;
     width: 100%;
     .search-for-task {
-        width: 80%;
-        color: $header-search-input-color;
-        background: {
-            color: $header-search-input-background-color;
-        }
-        border: none;
-        padding: rem-calc(7) rem-calc(20);
-        border: {
-            radius: rem-calc(100);
-        }
-        transition: width 0.1s linear;
-        &::placeholder {
-            color: $header-search-input-placeholder-color;
-        }
-        &:focus {
-            outline: none;
-            width: 90%;
-        }
-        &:focus::placeholder {
-            color: transparent;
-        }
+        @include custom-search-input($width: 80%, $color: $header-search-input-color, $background-color: $header-search-input-background-color);
     }
     .button {
         margin: {

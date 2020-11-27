@@ -9,7 +9,7 @@ $global-weight-normal: 400;
 
 // PALETTE COLORS
 $foundation-palette: (
-        primary: #2c594e,
+        primary: #2E3553,
         secondary: orange,
         sky: #eaf2f0,
         sky-2: #e5eaed,
@@ -42,9 +42,9 @@ $grid-container-padding: 0;
 // GLOBAL ELEMENTS
 $link-color: white;
 $link-hover-color: #4062BB;
-
+$scrollbar-background-color: #999;
 //HEADER
-$header-background-color: #2E3553;
+$header-background-color: get-color(primary);
 $header-icon-qq-color: #BA265D;
 $header-icon-color: white;
 $header-title-color: white;
@@ -65,7 +65,6 @@ $aside-copyright-paragraph-color: white;
 $page-body-background-color: #2a314f;
 // TODOS
 $todos-content-background-color: #4C4177;
-$todos-scrollbar-background-color: #999;
 $todos-header-headline-color: white;
 $todos-header-border-bottom-color: #999;
 $todos-header-description-color: white;
@@ -83,3 +82,11 @@ $todos-button-delete-background-color: #BA265D;
 $todos-button-delete-icon-color: white;
 $todos-description-color: white;
 $todos-description-border-color: #999;
+// TODO-POPUP
+$todo-popup-background-color: get-color(primary);
+$todo-popup-label-color: white;
+$todo-popup-button-color: white;
+$todo-popup-submit-button-background-color: $todos-button-complete-icon-color;
+$todo-popup-submit-button-after-background-color: $todo-popup-submit-button-background-color;
+$todo-popup-textarea-background-color: white;
+$todo-popup-textarea-color: #7B8797;

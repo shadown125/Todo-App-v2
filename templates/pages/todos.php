@@ -4,7 +4,7 @@
 <section class="todos">
     <div class="todos-header">
         <h3 class="h3 headline">In progression</h3>
-        <a href="./" class="button"></a>
+        <a href="./#todo-popup" class="button add-todo"></a>
         <div class="description">Today</div>
     </div>
     <div class="todos-wrapper">

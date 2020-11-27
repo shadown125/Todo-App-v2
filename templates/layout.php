@@ -31,6 +31,7 @@
             </div>
         </div>
     </div>
+    <?php require_once("templates/includes/todo-popup.php");?>
     <div class="blur"></div>
 </main>
 </body>

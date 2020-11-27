@@ -1,0 +1,15 @@
+@mixin custom-scrollbar($background-color: $scrollbar-background-color) {
+    &::-webkit-scrollbar {
+        width: rem-calc(28);
+    }
+    &::-webkit-scrollbar-thumb {
+        border: rem-calc(12) solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        background:{
+            color: $background-color;
+        }
+        border: {
+            radius: rem-calc(15);
+        }
+    }
+}

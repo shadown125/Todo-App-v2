@@ -9,19 +9,7 @@
     }
     padding: rem-calc(18);
     overflow-y: auto;
-    &::-webkit-scrollbar {
-        width: rem-calc(28);
-    }
-    &::-webkit-scrollbar-thumb {
-        border: 10px solid rgba(0, 0, 0, 0);
-        background-clip: padding-box;
-        background:{
-            color: $todos-scrollbar-background-color;
-        }
-        border: {
-            radius: rem-calc(15);
-        }
-    }
+    @include custom-scrollbar();
     .todos-header {
         display: flex;
         padding: {
