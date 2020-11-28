@@ -26,9 +26,7 @@
     <div class="wrapper">
         <div class="container">
             <?php require_once("templates/includes/main-navigation-sidebar.php"); ?>
-            <div class="content-container">
-                <?php require_once("templates/pages/$page.php")?>
-            </div>
+            <?php require_once("templates/pages/$page.php")?>
         </div>
     </div>
     <?php require_once("templates/includes/todo-popup.php");?>

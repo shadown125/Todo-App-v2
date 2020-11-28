@@ -45,6 +45,14 @@ abstract class AbstractController
         $this->$action();
     }
 
+    final protected function redirect(string $to): void
+    {
+        $location = $to;
+
+        header("Location: $location");
+        exit;
+    }
+
     final private function action(): string
     {
         return $this->request->getParam('action', self::DEFAULT_ACTION);

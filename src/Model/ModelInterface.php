@@ -7,4 +7,8 @@ namespace App\Model;
 interface ModelInterface
 {
     public function getTodos(): array;
+
+    public function create(array $data): void;
+
+    public function delete(int $id): void;
 }
