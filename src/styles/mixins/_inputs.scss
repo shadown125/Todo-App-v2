@@ -1,0 +1,24 @@
+@mixin input($color: #f0eeee, $background-color: #777, $focus-background-color: white) {
+    color: $color;
+    background: {
+        color: $background-color;
+    }
+    border: none;
+    padding: rem-calc(7) rem-calc(20);
+    border: {
+        radius: rem-calc(100);
+    }
+    transition: background-color 0.2s ease-in-out;
+    &::placeholder {
+        color: $color;
+    }
+    &:focus {
+        outline: none;
+        background: {
+            color: $focus-background-color;
+        }
+    }
+    &:focus::placeholder {
+        color: transparent;
+    }
+}

@@ -43,6 +43,9 @@ $grid-container-padding: 0;
 $link-color: white;
 $link-hover-color: #4062BB;
 $scrollbar-background-color: #999;
+//BODY
+$background-color-1: #667eea;
+$background-color-2: #764ba2;
 //HEADER
 $header-background-color: get-color(primary);
 $header-icon-qq-color: #BA265D;
@@ -51,6 +54,8 @@ $header-title-color: white;
 $header-search-input-color: #f0eeee;
 $header-search-input-background-color: #454d66;
 $header-search-input-placeholder-color: white;
+$header-settings-background-color: #454d66;
+$header-settings-hover-background-color: #667eea;
 // MAIN-NAVIGATION SIDEBAR
 $main-navigation-background-image-first-gradient: #2E3553;
 $main-navigation-background-image-second-gradient: #4C4177;
@@ -90,3 +95,12 @@ $todo-popup-submit-button-background-color: $todos-button-complete-icon-color;
 $todo-popup-submit-button-after-background-color: $todo-popup-submit-button-background-color;
 $todo-popup-textarea-background-color: white;
 $todo-popup-textarea-color: #7B8797;
+// LOGIN
+$login-input-focus-background-color: #454d66;
+$login-color: #777;
+$login-wrapper-background-color: white;
+$register-color: black;
+$register-border-color: #0162c8;
+$register-hover-color: #BA265D;
+$login-anchor-color: blue;
+$login-button-color: white;

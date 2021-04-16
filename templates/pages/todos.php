@@ -1,7 +1,5 @@
 <div class="content-container">
-    <div class="progression-content">
-
-    </div>
+    <?php require_once('templates/includes/progression.php');?>
     <section class="todos">
         <div class="todos-header">
             <h3 class="h3 headline">In progression</h3>

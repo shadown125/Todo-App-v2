@@ -1,5 +1,39 @@
-//.page-content {
-//    .container {
-//        display: flex;
-//    }
-//}
+body {
+    height: 100vh;
+    background: {
+        image: linear-gradient($background-color-1, $background-color-2);
+    }
+    &.login {
+        display: flex;
+        justify: {
+            content: center;
+        }
+        align: {
+            items: center;
+        }
+        .content-wrapper {
+            min: {
+                width: 100%;
+            }
+            @include breakpoint(large) {
+                min: {
+                    width: 90%;
+                }
+            }
+        }
+    }
+    @include breakpoint(large) {
+        display: flex;
+        justify: {
+            content: center;
+        }
+        align: {
+            items: center;
+        }
+        .content-wrapper {
+            min: {
+                width: 90%;
+            }
+        }
+    }
+}

@@ -3,10 +3,17 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    @include breakpoint(large) {
+        width: unset;
+        flex: {
+            grow: 1;
+        }
+    }
     .search-for-task {
         @include custom-search-input($width: 80%, $color: $header-search-input-color, $background-color: $header-search-input-background-color);
     }
     .button {
+        @include default-button-states();
         margin: {
             left: rem-calc(-28);
         }

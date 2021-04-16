@@ -16,6 +16,9 @@
             <li class="done-todos">
                 <a href="#">Done Todos</a>
             </li>
+            <li class="settings">
+                <a href="#">Settings</a>
+            </li>
         </ul>
     </nav>
     <div class="copyright">

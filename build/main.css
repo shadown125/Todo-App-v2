@@ -435,9 +435,9 @@ a:hover {
 
 /* line 24, src/styles/elements/_todo-popup.scss */
 .todo-popup .content {
-  padding: 1rem;
-  height: 21.875rem;
+  padding: 2rem;
   width: 85%;
+  max-width: 56.25rem;
   background-color: #2E3553;
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
   border-radius: 15px;
@@ -447,7 +447,7 @@ a:hover {
   transition: all 0.5s 0.2s;
 }
 
-/* line 35, src/styles/elements/_todo-popup.scss */
+/* line 37, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .button {
   display: flex;
   justify-content: flex-end;
@@ -455,7 +455,7 @@ a:hover {
   margin-left: auto;
 }
 
-/* line 42, src/styles/elements/_todo-popup.scss */
+/* line 44, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .button::before {
   content: "";
   font-family: "icomoon";
@@ -470,38 +470,42 @@ a:hover {
   font-size: 1.625rem;
 }
 
-/* line 49, src/styles/elements/_todo-popup.scss */
+/* line 51, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .add-todo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 90%;
 }
 
 /* line 54, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .add-todo div {
   display: flex;
   flex-direction: column;
+}
+
+/* line 57, src/styles/elements/_todo-popup.scss */
+.todo-popup .content .add-todo div:not(:first-child) {
   margin-top: 1rem;
 }
 
-/* line 60, src/styles/elements/_todo-popup.scss */
-.todo-popup .content .add-todo div:nth-child(2) {
-  height: 100%;
-}
-
-/* line 62, src/styles/elements/_todo-popup.scss */
+/* line 63, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .add-todo div:nth-child(2) .description {
-  height: 100%;
+  height: 15vh;
 }
 
-/* line 66, src/styles/elements/_todo-popup.scss */
+@media print, screen and (min-width: 62.5em) {
+  /* line 63, src/styles/elements/_todo-popup.scss */
+  .todo-popup .content .add-todo div:nth-child(2) .description {
+    height: 30vh;
+  }
+}
+
+/* line 70, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .add-todo div label {
   color: white;
   margin-bottom: 0.375rem;
 }
 
-/* line 72, src/styles/elements/_todo-popup.scss */
+/* line 76, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .add-todo div .title {
   width: 100%;
   color: #7B8797;
@@ -533,7 +537,7 @@ a:hover {
   color: transparent;
 }
 
-/* line 75, src/styles/elements/_todo-popup.scss */
+/* line 79, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .add-todo div .description {
   font-size: 1rem;
   color: #7B8797;
@@ -546,7 +550,7 @@ a:hover {
   outline: none;
 }
 
-/* line 91, src/styles/elements/_todo-popup.scss */
+/* line 95, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .add-todo div .description:focus:-ms-input-placeholder {
   color: transparent;
 }
@@ -567,7 +571,7 @@ a:hover {
   border-radius: 0.9375rem;
 }
 
-/* line 96, src/styles/elements/_todo-popup.scss */
+/* line 100, src/styles/elements/_todo-popup.scss */
 .todo-popup .content .add-todo div button {
   display: block;
   position: relative;
@@ -619,6 +623,199 @@ a:hover {
   background-color: #A4508B;
 }
 
+/* line 1, src/styles/components/_grid.scss */
+body {
+  height: 100vh;
+  background-image: linear-gradient(#667eea, #764ba2);
+}
+
+/* line 6, src/styles/components/_grid.scss */
+body.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 14, src/styles/components/_grid.scss */
+body.login .content-wrapper {
+  min-width: 100%;
+}
+
+@media print, screen and (min-width: 62.5em) {
+  /* line 14, src/styles/components/_grid.scss */
+  body.login .content-wrapper {
+    min-width: 90%;
+  }
+}
+
+@media print, screen and (min-width: 62.5em) {
+  /* line 1, src/styles/components/_grid.scss */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* line 33, src/styles/components/_grid.scss */
+  body .content-wrapper {
+    min-width: 90%;
+  }
+}
+
+/* line 3, src/styles/components/_login.scss */
+.login .container,
+.register .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-image: url("./img-3.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.9375rem;
+  color: #777;
+}
+
+/* line 23, src/styles/components/_login.scss */
+.login .container .inner-wrapper,
+.register .container .inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 37.5rem;
+  width: 90%;
+  padding: 1.875rem 4.375rem;
+  background-color: white;
+  border-radius: 0.9375rem;
+}
+
+@media print, screen and (min-width: 37.5em) {
+  /* line 23, src/styles/components/_login.scss */
+  .login .container .inner-wrapper,
+  .register .container .inner-wrapper {
+    width: 75%;
+  }
+}
+
+@media print, screen and (min-width: 62.5em) {
+  /* line 23, src/styles/components/_login.scss */
+  .login .container .inner-wrapper,
+  .register .container .inner-wrapper {
+    width: 60%;
+  }
+}
+
+/* line 44, src/styles/components/_login.scss */
+.login .container .title,
+.register .container .title {
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+/* line 52, src/styles/components/_login.scss */
+.login .container .register,
+.register .container .register {
+  display: inline-block;
+  color: black;
+  border-radius: 3.125rem;
+  border-width: 1px;
+  border-color: #0162c8;
+  border-style: solid;
+  padding: 0.125rem 0.625rem;
+  transition: transform .1s linear;
+}
+
+/* line 63, src/styles/components/_login.scss */
+.login .container .register:hover,
+.register .container .register:hover {
+  color: #BA265D;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  transform: rotate(5deg) scale(1.3);
+}
+
+/* line 70, src/styles/components/_login.scss */
+.login .container .form div,
+.register .container .form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+/* line 79, src/styles/components/_login.scss */
+.login .container .form div.submitting-container,
+.register .container .form div.submitting-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* line 84, src/styles/components/_login.scss */
+.login .container .form div.submitting-container a,
+.register .container .form div.submitting-container a {
+  color: blue;
+  margin-right: auto;
+}
+
+/* line 90, src/styles/components/_login.scss */
+.login .container .form div.submitting-container button,
+.register .container .form div.submitting-container button {
+  font-size: 1.25rem;
+  background-image: linear-gradient(90deg, #0162c8, #55e7fc);
+  padding: 0.625rem 2.5rem;
+  border-radius: 3.125rem;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+/* line 4, src/styles/mixins/_button.scss */
+.login .container .form div.submitting-container button:active, .login .container .form div.submitting-container button:focus,
+.register .container .form div.submitting-container button:active,
+.register .container .form div.submitting-container button:focus {
+  outline: none;
+}
+
+/* line 108, src/styles/components/_login.scss */
+.login .container .form label,
+.register .container .form label {
+  margin-bottom: 0.375rem;
+  font-size: 1.125rem;
+}
+
+/* line 117, src/styles/components/_login.scss */
+.login .container input,
+.register .container input {
+  color: #f0eeee;
+  background-color: #777;
+  border: none;
+  padding: 0.4375rem 1.25rem;
+  border-radius: 6.25rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* line 12, src/styles/mixins/_inputs.scss */
+.login .container input:-ms-input-placeholder, .register .container input:-ms-input-placeholder {
+  color: #f0eeee;
+}
+.login .container input::placeholder,
+.register .container input::placeholder {
+  color: #f0eeee;
+}
+
+/* line 15, src/styles/mixins/_inputs.scss */
+.login .container input:focus,
+.register .container input:focus {
+  outline: none;
+  background-color: #454d66;
+}
+
+/* line 21, src/styles/mixins/_inputs.scss */
+.login .container input:focus:-ms-input-placeholder, .register .container input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.login .container input:focus::placeholder,
+.register .container input:focus::placeholder {
+  color: transparent;
+}
+
 /* line 1, src/styles/components/_main-navigation.scss */
 .aside-navigation {
   display: none;
@@ -636,17 +833,25 @@ a:hover {
   z-index: 2;
 }
 
-/* line 17, src/styles/components/_main-navigation.scss */
+@media print, screen and (min-width: 62.5em) {
+  /* line 1, src/styles/components/_main-navigation.scss */
+  .aside-navigation {
+    display: flex;
+    position: unset;
+  }
+}
+
+/* line 21, src/styles/components/_main-navigation.scss */
 .aside-navigation.flex {
   display: flex;
 }
 
-/* line 20, src/styles/components/_main-navigation.scss */
+/* line 24, src/styles/components/_main-navigation.scss */
 .aside-navigation.is-active {
   left: 0;
 }
 
-/* line 24, src/styles/components/_main-navigation.scss */
+/* line 28, src/styles/components/_main-navigation.scss */
 .aside-navigation .main-navigation ul {
   list-style: none;
   margin: 0;
@@ -664,49 +869,49 @@ a:hover {
   content: none;
 }
 
-/* line 29, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li {
+/* line 34, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li {
   color: white;
   position: relative;
 }
 
-/* line 32, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li:first-child {
+/* line 37, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li:first-child {
   margin-bottom: 1.875rem;
 }
 
-/* line 36, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li:first-child .profile-container {
+/* line 41, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li:first-child .profile-container {
   display: flex;
 }
 
-/* line 38, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li:first-child .profile-container img {
+/* line 43, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li:first-child .profile-container img {
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
   margin-right: 1rem;
 }
 
-/* line 48, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li:first-child .profile-container .profile-information {
+/* line 53, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li:first-child .profile-container .profile-information {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* line 53, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li:first-child .profile-container .profile-information div:last-child {
+/* line 58, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li:first-child .profile-container .profile-information div:last-child {
   margin-top: 0.375rem;
 }
 
-/* line 62, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li:not(:first-child) {
+/* line 67, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li:not(:first-child) {
   padding-left: 3.125rem;
 }
 
-/* line 67, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li:not(:first-child) a::after {
+/* line 72, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li:not(:first-child) a::after {
   content: "";
   width: 2.25rem;
   height: 2.25rem;
@@ -716,19 +921,19 @@ a:hover {
   border-radius: 50%;
 }
 
-/* line 81, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li:not(:last-child) a {
+/* line 86, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li:not(:last-child) a {
   padding-bottom: 1.875rem;
 }
 
-/* line 87, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li a {
+/* line 92, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li a {
   display: flex;
   padding-top: 0.25rem;
 }
 
-/* line 92, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul li a::before {
+/* line 97, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation li a::before {
   font-family: "icomoon";
   font-style: normal;
   font-weight: normal;
@@ -745,30 +950,37 @@ a:hover {
   z-index: 1;
 }
 
-/* line 106, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul .today a::before {
-  content: "";
-}
-
-/* line 109, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul .today a::after {
-  background-image: linear-gradient(to right bottom, #5F0A87, #A4508B);
-}
-
-/* line 118, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul .done-todos a::before {
+/* line 111, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation .done-todos a::before {
   content: "";
   font-size: 1.5rem;
   top: 0.375rem;
   left: 0.4375rem;
 }
 
-/* line 126, src/styles/components/_main-navigation.scss */
-.aside-navigation .main-navigation ul .done-todos a::after {
+/* line 119, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation .done-todos a::after {
   background-image: linear-gradient(to right bottom, #380036, #0CBABA);
 }
 
-/* line 135, src/styles/components/_main-navigation.scss */
+/* line 128, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation .today a::before {
+  content: "";
+}
+
+/* line 131, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation .today a::after {
+  background-image: linear-gradient(to right bottom, #5F0A87, #A4508B);
+}
+
+@media print, screen and (min-width: 62.5em) {
+  /* line 138, src/styles/components/_main-navigation.scss */
+  .aside-navigation .main-navigation .settings {
+    display: none;
+  }
+}
+
+/* line 147, src/styles/components/_main-navigation.scss */
 .aside-navigation .copyright {
   display: block;
   margin-top: auto;
@@ -778,17 +990,34 @@ a:hover {
 /* line 2, src/styles/components/_page-body.scss */
 .page-body .container {
   position: relative;
-  height: 45.9375rem;
+  height: 90vh;
   background-color: #2a314f;
   padding-bottom: 1.25rem;
 }
 
-/* line 11, src/styles/components/_page-body.scss */
+@media print, screen and (min-width: 62.5em) {
+  /* line 2, src/styles/components/_page-body.scss */
+  .page-body .container {
+    display: flex;
+    height: 45.9375rem;
+    border-bottom-right-radius: 0.9375rem;
+    border-bottom-left-radius: 0.9375rem;
+  }
+}
+
+/* line 17, src/styles/components/_page-body.scss */
 .page-body .container .content-container {
   padding-top: 1.25rem;
   padding-right: 1.25rem;
   padding-left: 1.25rem;
   height: 100%;
+}
+
+@media print, screen and (min-width: 62.5em) {
+  /* line 17, src/styles/components/_page-body.scss */
+  .page-body .container .content-container {
+    flex-grow: 1;
+  }
 }
 
 /* line 2, src/styles/components/_page-header.scss */
@@ -803,14 +1032,23 @@ a:hover {
   padding-bottom: 1.25rem;
 }
 
-/* line 15, src/styles/components/_page-header.scss */
+@media print, screen and (min-width: 62.5em) {
+  /* line 2, src/styles/components/_page-header.scss */
+  .page-header .container {
+    border-top-right-radius: 0.9375rem;
+    border-top-left-radius: 0.9375rem;
+    flex-wrap: nowrap;
+  }
+}
+
+/* line 22, src/styles/components/_page-header.scss */
 .page-header .container .headline {
   position: relative;
   padding-left: 2.625rem;
   color: white;
 }
 
-/* line 21, src/styles/components/_page-header.scss */
+/* line 28, src/styles/components/_page-header.scss */
 .page-header .container .headline::before {
   content: "";
   font-family: "icomoon";
@@ -828,7 +1066,16 @@ a:hover {
   left: 0;
 }
 
-/* line 30, src/styles/components/_page-header.scss */
+@media print, screen and (min-width: 62.5em) {
+  /* line 22, src/styles/components/_page-header.scss */
+  .page-header .container .headline {
+    white-space: nowrap;
+    margin-right: 1rem;
+    margin-left: 2rem;
+  }
+}
+
+/* line 44, src/styles/components/_page-header.scss */
 .page-header .container .button::before {
   font-family: "icomoon";
   font-style: normal;
@@ -842,7 +1089,7 @@ a:hover {
   color: white;
 }
 
-/* line 35, src/styles/components/_page-header.scss */
+/* line 49, src/styles/components/_page-header.scss */
 .page-header .container .button-menu {
   position: absolute;
   top: 1.875rem;
@@ -854,15 +1101,40 @@ a:hover {
   outline: none;
 }
 
-/* line 40, src/styles/components/_page-header.scss */
+/* line 54, src/styles/components/_page-header.scss */
 .page-header .container .button-menu:hover {
   cursor: pointer;
 }
 
-/* line 43, src/styles/components/_page-header.scss */
+/* line 57, src/styles/components/_page-header.scss */
 .page-header .container .button-menu::before {
   content: "";
   font-size: 1.875rem;
+}
+
+@media print, screen and (min-width: 62.5em) {
+  /* line 49, src/styles/components/_page-header.scss */
+  .page-header .container .button-menu {
+    display: none;
+  }
+}
+
+@media print, screen and (min-width: 62.5em) {
+  /* line 67, src/styles/components/_page-header.scss */
+  .page-header .container .settings {
+    display: inline-block;
+    width: 2.8125rem;
+    height: 2.8125rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    background-color: #454d66;
+    border-radius: 12.5rem;
+    transition: background-color 0.2s linear;
+  }
+  /* line 83, src/styles/components/_page-header.scss */
+  .page-header .container .settings:hover {
+    background-color: #667eea;
+  }
 }
 
 /* line 1, src/styles/components/_search-form.scss */
@@ -873,7 +1145,15 @@ a:hover {
   width: 100%;
 }
 
-/* line 6, src/styles/components/_search-form.scss */
+@media print, screen and (min-width: 62.5em) {
+  /* line 1, src/styles/components/_search-form.scss */
+  .search-form {
+    width: unset;
+    flex-grow: 1;
+  }
+}
+
+/* line 12, src/styles/components/_search-form.scss */
 .search-form .search-for-task {
   width: 80%;
   color: #f0eeee;
@@ -905,19 +1185,24 @@ a:hover {
   color: transparent;
 }
 
-/* line 9, src/styles/components/_search-form.scss */
+/* line 15, src/styles/components/_search-form.scss */
 .search-form .button {
   margin-left: -1.75rem;
   padding: 0.375rem 0;
 }
 
-/* line 14, src/styles/components/_search-form.scss */
+/* line 4, src/styles/mixins/_button.scss */
+.search-form .button:active, .search-form .button:focus {
+  outline: none;
+}
+
+/* line 21, src/styles/components/_search-form.scss */
 .search-form .button::before {
   content: "";
   font-size: 1.25rem;
 }
 
-/* line 20, src/styles/components/_search-form.scss */
+/* line 27, src/styles/components/_search-form.scss */
 .search-form .button:hover {
   cursor: pointer;
 }

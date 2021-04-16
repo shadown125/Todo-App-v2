@@ -1,0 +1,121 @@
+.login,
+.register {
+    .container {
+        display: flex;
+        justify: {
+            content: center;
+        }
+        align: {
+            items: center;
+        }
+        min: {
+            height: 90vh;
+        }
+        background: {
+            image: url("./img-3.jpg");
+            size: cover;
+            position: center;
+        }
+        border: {
+            radius: rem-calc(15);
+        }
+        color: $login-color;
+        .inner-wrapper {
+            display: flex;
+            flex: {
+                direction: column;
+            }
+            height: rem-calc(600);
+            width: 90%;
+            padding: rem-calc(30) rem-calc(70);
+            background: {
+                color: $login-wrapper-background-color;
+            }
+            border: {
+                radius: rem-calc(15);
+            }
+            @include breakpoint('medium') {
+                width: 75%;
+            }
+            @include breakpoint('large') {
+                width: 60%;
+            }
+        }
+        .title {
+            margin: {
+                bottom: rem-calc(20);
+            }
+            text: {
+                align: center;
+            }
+        }
+        .register {
+            display: inline-block;
+            color: $register-color;
+            border: {
+                radius: rem-calc(50);
+                width: 1px;
+                color: $register-border-color;
+                style: solid;
+            }
+            padding: rem-calc(2) rem-calc(10);
+            transition: transform .1s linear;
+            &:hover {
+                color: $register-hover-color;
+                box-shadow: 0 1rem 2rem rgba(0,0,0,0.4);
+                transform: rotate(5deg) scale(1.3);
+            }
+        }
+        .form {
+            div {
+                display: flex;
+                flex: {
+                    direction: column;
+                }
+                margin: {
+                    bottom: rem-calc(20);
+                }
+                width: 100%;
+                &.submitting-container {
+                    flex: {
+                        direction: row;
+                        wrap: wrap;
+                    }
+                    a {
+                        color: $login-anchor-color;
+                        margin: {
+                            right: auto;
+                        }
+                    }
+                    button {
+                        @include default-button-states();
+                        font: {
+                            size: rem-calc(20);
+                        }
+                        background: {
+                            image: linear-gradient(90deg, #0162c8, #55e7fc);
+                        }
+                        padding: rem-calc(10) rem-calc(40);
+                        border: {
+                            radius: rem-calc(50);
+                        }
+                        color: $login-button-color;
+                        cursor: pointer;
+                        position: relative;
+                    }
+                }
+            }
+            label {
+                margin: {
+                    bottom: rem-calc(6)
+                }
+                font: {
+                    size: rem-calc(18)
+                }
+            }
+        }
+        input {
+            @include input($focus-background-color: $login-input-focus-background-color);
+        }
+    }
+}

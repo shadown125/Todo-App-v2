@@ -6,11 +6,17 @@ namespace App\Controller;
 
 class TodoController extends AbstractController
 {
-    public function todosAction(): void
+    public function renderSiteAction(): void
     {
-        $this->view->render('todos', [
-            'todo' => $this->todoModel->getTodos()
-        ]);
+        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+//        $this->view->render('todos', [
+//            'todo' => $this->todoModel->getTodos()
+//        ]);
+        if (strpos((string) $actual_link, 'register') !== false) {
+            $this->view->render('register');
+        } else {
+            $this->view->render('login');
+        }
     }
 
     public function createAction(): void
@@ -36,7 +42,7 @@ class TodoController extends AbstractController
         $this->view->render('todos');
     }
 
-    final private function getTodo(): array
+    private function getTodo(): array
     {
         $todoId = (int) $this->request->getParam('id');
         if(!$todoId) {

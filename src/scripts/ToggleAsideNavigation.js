@@ -18,10 +18,12 @@ export default class ToggleAsideNavigation {
             this.divBlur.addClass('background-blur');
         }
     }
+
     hideAsideWhileClickingOutside() {
         this.asideNavigation.removeClass('is-active').removeClass('flex');
         this.divBlur.removeClass('background-blur');
     }
+
     hideAsideNavigationAndBlurWhileClickAnchor() {
         this.hideAsideWhileClickingOutside();
     }

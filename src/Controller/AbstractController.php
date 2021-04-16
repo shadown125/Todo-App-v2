@@ -12,7 +12,7 @@ use App\Model\TodoModel;
 
 abstract class AbstractController
 {
-    protected const DEFAULT_ACTION = 'todos';
+    protected const DEFAULT_ACTION = 'renderSite';
 
     private static array $configuration = [];
 
@@ -53,7 +53,7 @@ abstract class AbstractController
         exit;
     }
 
-    final private function action(): string
+    private function action(): string
     {
         return $this->request->getParam('action', self::DEFAULT_ACTION);
     }

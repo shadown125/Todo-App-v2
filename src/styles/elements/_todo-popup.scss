@@ -22,9 +22,11 @@
     }
     @include backdrop-filter();
     .content {
-        padding: rem-calc(16);
-        height: rem-calc(350);
+        padding: rem-calc(32);
         width: 85%;
+        max: {
+            width: rem-calc(900);
+        }
         background-color: $todo-popup-background-color;
         box-shadow: 0 rem-calc(32) rem-calc(64) rgba(black, 0.2);
         border-radius: 15px;
@@ -49,18 +51,20 @@
         .add-todo {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            height: 90%;
             div {
                 display: flex;
                 flex-direction: column;
-                margin: {
-                    top: rem-calc(16);
+                &:not(:first-child) {
+                    margin: {
+                        top: rem-calc(16);
+                    }
                 }
                 &:nth-child(2) {
-                    height: 100%;
                     .description {
-                        height: 100%;
+                        height: 15vh;
+                        @include breakpoint(large) {
+                            height: 30vh;
+                        }
                     }
                 }
                 label {

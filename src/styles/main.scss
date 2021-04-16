@@ -12,6 +12,7 @@
 @import "mixins/backdrop-filter";
 @import "mixins/button";
 @import "mixins/icon";
+@import "mixins/inputs";
 @import "mixins/reset-list";
 @import "mixins/scrollbar";
 @import "mixins/search-input";
@@ -26,6 +27,7 @@
 
 //COMPONENTS
 @import "components/grid";
+@import "components/login";
 @import "components/main-navigation";
 @import "components/page-body";
 @import "components/page-header";

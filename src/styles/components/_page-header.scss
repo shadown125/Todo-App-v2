@@ -12,6 +12,13 @@
             top: rem-calc(20);
             bottom: rem-calc(20);
         }
+        @include breakpoint(large) {
+            border-top-right-radius: rem-calc(15);
+            border-top-left-radius: rem-calc(15);
+            flex: {
+                wrap: nowrap;
+            }
+        }
         .headline {
             position: relative;
             padding: {
@@ -24,6 +31,13 @@
                 position: absolute;
                 top: rem-calc(10);
                 left: 0;
+            }
+            @include breakpoint(large) {
+                white-space: nowrap;
+                margin: {
+                    right: rem-calc(16);
+                    left: rem-calc(32);
+                }
             }
         }
         .button {
@@ -44,6 +58,32 @@
                 @include icon($icon-menu, false);
                 font: {
                     size: rem-calc(30);
+                }
+            }
+            @include breakpoint(large) {
+                display: none;
+            }
+        }
+        .settings {
+            @include breakpoint(large) {
+                display: inline-block;
+                width: rem-calc(45);
+                height: rem-calc(45);
+                margin: {
+                    right: rem-calc(32);
+                    left: rem-calc(32);
+                }
+                background: {
+                    color: $header-settings-background-color;
+                }
+                border: {
+                    radius: rem-calc(200);
+                }
+                transition: background-color 0.2s linear;
+                &:hover {
+                    background: {
+                        color: $header-settings-hover-background-color;
+                    }
                 }
             }
         }

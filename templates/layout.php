@@ -20,17 +20,31 @@
     <script src="./build/vendor.js" defer></script>
     <script src="./build/main.js" defer></script>
 </head>
-<body>
-<?php require_once('templates/includes/header.php'); ?>
-<main class="page-body">
-    <div class="wrapper">
-        <div class="container">
-            <?php require_once("templates/includes/main-navigation-sidebar.php"); ?>
-            <?php require_once("templates/pages/$page.php")?>
+<body  class="<?php if ($page !== 'todos') echo $page; ?>" >
+<div class="content-wrapper">
+    <?php if ($page === 'todos'): ?>
+        <?php require_once('templates/includes/header.php'); ?>
+        <main class="page-body">
+            <div class="wrapper">
+                <div class="container">
+                    <?php require_once("templates/includes/main-navigation-sidebar.php"); ?>
+                    <?php require_once("templates/pages/$page.php"); ?>
+                </div>
+            </div>
+            <?php require_once("templates/includes/todo-popup.php");?>
+            <div class="blur"></div>
+        </main>
+    <?php else: ?>
+    <section class="section">
+        <div class="wrapper">
+            <div class="container">
+                <div class="inner-wrapper">
+                    <?php require_once("templates/pages/$page.php"); ?>
+                </div>
+            </div>
         </div>
-    </div>
-    <?php require_once("templates/includes/todo-popup.php");?>
-    <div class="blur"></div>
-</main>
+    </section>
+    <?php endif; ?>
+</div>
 </body>
 </html>

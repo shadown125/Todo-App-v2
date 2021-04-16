@@ -1,12 +1,18 @@
 .page-body {
     .container {
         position: relative;
-        height: rem-calc(735);
+        height: 90vh;
         background: {
             color: $page-body-background-color;
         }
         padding: {
             bottom: rem-calc(20);
+        }
+        @include breakpoint(large) {
+            display: flex;
+            height: rem-calc(735);
+            border-bottom-right-radius: rem-calc(15);
+            border-bottom-left-radius: rem-calc(15);
         }
         .content-container {
             padding: {
@@ -15,6 +21,11 @@
                 left: rem-calc(20);
             }
             height: 100%;
+            @include breakpoint(large) {
+                flex: {
+                    grow: 1;
+                }
+            }
         }
     }
 }
