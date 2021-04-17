@@ -20,7 +20,8 @@ $foundation-palette: (
 $breakpoints: (
         small: 0,
         medium: 600px,
-        large: 1000px
+        large: 1000px,
+        xlarge: 1440px
 );
 
 // BUTTON GLOBAL STYLES
@@ -102,5 +103,10 @@ $login-wrapper-background-color: white;
 $register-color: black;
 $register-border-color: #0162c8;
 $register-hover-color: #BA265D;
-$login-anchor-color: blue;
+$login-anchor-color: #009FFD;
 $login-button-color: white;
+// REGISTER
+$register-back-button-background-color: #BA265D;
+$register-back-button-after-background-color: $register-back-button-background-color;
+$register-invalid-input-border-color: #d60f0f;
+$register-invalid-span-color: #d60f0f;

@@ -31,7 +31,7 @@ class TodoModel extends AbstractModel implements ModelInterface
             $result = $this->conn->query($query);
             $todo = $result->fetch(PDO::FETCH_ASSOC);
         } catch(Throwable $exception) {
-            throw new StorageException('Todo could not be downlaoded', 400, $exception);
+            throw new StorageException('Todo could not be downloaded', 400, $exception);
         }
         if(!$todo) {
             throw new NotFoundException("Todo with id: $id doesn't exist");

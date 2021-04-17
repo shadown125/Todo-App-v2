@@ -25,9 +25,9 @@
             flex: {
                 direction: column;
             }
-            height: rem-calc(600);
+            min-height: rem-calc(600);
             width: 90%;
-            padding: rem-calc(30) rem-calc(70);
+            padding: rem-calc(30) rem-calc(40);
             background: {
                 color: $login-wrapper-background-color;
             }
@@ -36,8 +36,9 @@
             }
             @include breakpoint('medium') {
                 width: 75%;
+                padding: rem-calc(30) rem-calc(70);
             }
-            @include breakpoint('large') {
+            @include breakpoint('xlarge') {
                 width: 60%;
             }
         }
@@ -67,6 +68,31 @@
             }
         }
         .form {
+            .name-wrapper {
+                margin: {
+                    bottom: 0;
+                }
+                @include breakpoint('large') {
+                    flex: {
+                        direction: row;
+                    }
+                }
+                div {
+                    @include breakpoint('large') {
+                        &:first-child {
+                            padding: {
+                                left: rem-calc(-20);
+                                right: rem-calc(20);
+                            }
+                        }
+                        &:last-child {
+                            padding: {
+                                left: rem-calc(20);
+                            }
+                        }
+                    }
+                }
+            }
             div {
                 display: flex;
                 flex: {
@@ -81,13 +107,14 @@
                         direction: row;
                         wrap: wrap;
                     }
-                    a {
+                    .forgotten-password {
                         color: $login-anchor-color;
                         margin: {
                             right: auto;
+                            bottom: rem-calc(10);
                         }
                     }
-                    button {
+                    .button {
                         @include default-button-states();
                         font: {
                             size: rem-calc(20);
@@ -116,6 +143,16 @@
         }
         input {
             @include input($focus-background-color: $login-input-focus-background-color);
+            &.is-invalid {
+                border: {
+                    style: solid;
+                    width: 2px;
+                    color: $register-invalid-input-border-color;
+                }
+            }
+        }
+        .invalid-feedback {
+            color: $register-invalid-span-color;
         }
     }
 }

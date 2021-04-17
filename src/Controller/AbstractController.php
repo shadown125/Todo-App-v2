@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Exception\ConfigurationException;
+use App\Model\UserModel;
 use App\Request;
 use App\View;
 use App\Model\TodoModel;
@@ -17,6 +18,7 @@ abstract class AbstractController
     private static array $configuration = [];
 
     protected TodoModel $todoModel;
+    protected UserModel $userModel;
     protected View $view;
     protected Request $request;
 
@@ -31,6 +33,7 @@ abstract class AbstractController
             throw new ConfigurationException('Configuration error');
         }
         $this->todoModel = new TodoModel(self::$configuration['db']);
+        $this->userModel = new UserModel(self::$configuration['db']);
 
         $this->request = $request;
         $this->view = new View();
