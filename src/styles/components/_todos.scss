@@ -174,7 +174,8 @@
                         }
                     }
                 }
-                .description {
+                .description,
+                .created {
                     position: relative;
                     color: $todos-description-color;
                     margin: {
@@ -198,6 +199,12 @@
                             color: $todos-description-border-color;
                             style: solid;
                         }
+                    }
+                }
+                .created {
+                    &::before {
+                        top: rem-calc(-10);
+                        height: 150%;
                     }
                 }
             }

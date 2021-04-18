@@ -25,6 +25,40 @@ class TodoModel extends AbstractModel implements ModelInterface
         return $note;
     }
 
+    public function saveDoneTodo(int $id): void
+    {
+        try {
+            $todo = $this->get($id);
+            $todoId = $todo['id'];
+            $title = $this->conn->quote($todo['title']);
+            $userId = $this->conn->quote($todo['user_id']);
+            $description = $this->conn->quote($todo['description']);
+            $created = $this->conn->quote($todo['created']);
+
+            $query = "INSERT INTO done_todos(user_id, title, description, created_at) VALUES($userId, $title, $description, $created)";
+
+            $this->conn->exec($query);
+
+            $this->delete((int) $todoId);
+        } catch(Throwable $exception) {
+            throw new StorageException('Todo could not be set to Done', 400, $exception);
+        }
+    }
+
+    public function getDoneTodo(string $userId): array
+    {
+        try {
+            $userId = $this->conn->quote($userId);
+            $query = "SELECT * FROM done_todos WHERE user_id = $userId";
+            $result = $this->conn->query($query);
+            $doneTodos = $result->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Throwable $exception) {
+            throw new StorageException('Done Todos could not be downloaded. Please try again', 400, $exception);
+        }
+
+        return $doneTodos;
+    }
+
     public function get(int $id): array
     {
         try {
@@ -74,6 +108,16 @@ class TodoModel extends AbstractModel implements ModelInterface
     {
         try {
             $query = "DELETE FROM todo WHERE id = $id LIMIT 1";
+            $this->conn->exec($query);
+        } catch(Throwable $exception) {
+            throw new StorageException('Todo could not be deleted', 400, $exception);
+        }
+    }
+
+    public function deleteDoneTodo(int $id): void
+    {
+        try {
+            $query = "DELETE FROM done_todos WHERE id = $id LIMIT 1";
             $this->conn->exec($query);
         } catch(Throwable $exception) {
             throw new StorageException('Todo could not be deleted', 400, $exception);

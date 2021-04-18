@@ -5,6 +5,9 @@
     top: 0;
     left: rem-calc(-300);
     width: rem-calc(300);
+    min: {
+        width: rem-calc(300);
+    }
     height: 100%;
     padding: rem-calc(20) rem-calc(20);
     background: {

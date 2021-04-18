@@ -18,7 +18,9 @@ class TodoController extends AbstractController
 
         if(isset($_SESSION['user_id'])) {
             if(strpos((string) $actualLink, 'done-todo') !== false) {
-                $this->view->render('done-todo');
+                $this->view->render('done-todo', [
+                    'doneTodos' => $this->getDoneTodo()
+                ]);
             }
 
             $this->view->render('todos', [
@@ -123,6 +125,33 @@ class TodoController extends AbstractController
             $this->redirect('./');
         }
         $this->view->render('todos');
+    }
+
+    public function deleteDoneTodosAction(): void
+    {
+        if($this->request->isPost()) {
+            $id = (int) $this->request->postParam('id');
+            $this->todoModel->deleteDoneTodo($id);
+            $this->redirect('./done-todo');
+        }
+    }
+
+    private function getDoneTodo(): array
+    {
+        $activeUser = $_SESSION['user_id'];
+        return $this->todoModel->getDoneTodo($activeUser);
+    }
+
+    public function doneTodoAction(): void
+    {
+        if($this->request->isPost()) {
+            $todoId = (int) $this->request->postParam('id');
+            if(!$todoId) {
+                $this->redirect('./');
+            }
+            $this->todoModel->saveDoneTodo($todoId);
+        }
+        $this->redirect('./');
     }
 
     private function todos(): array

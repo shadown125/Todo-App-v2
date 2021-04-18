@@ -13,7 +13,10 @@
                     <div class="header">
                         <div class="circle"></div>
                         <h3 class="h3 headline"><?php echo $note['title']; ?></h3>
-                        <button class="button-complete"></button>
+                        <form action="./?action=doneTodo" method="post">
+                            <input type="hidden" name="id" value="<?php echo $note['id'];?>">
+                            <button class="button-complete"></button>
+                        </form>
                         <form action="./?action=getEditTodo" method="post">
                             <input type="hidden" name="id" value="<?php echo $note['id'];?>">
                             <button class="button-edit"></button>
