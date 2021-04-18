@@ -105,6 +105,9 @@
                         word:{
                             break: break-word;
                         }
+                        margin: {
+                            right: auto;
+                        }
                         @include breakpoint(medium) {
                             max: {
                                 width: 75%;
@@ -129,9 +132,6 @@
                     }
                     .button-complete {
                         @include custom-button($todos-button-complete-background-color);
-                        margin: {
-                            left: auto;
-                        }
                         background: {
                             color: $todos-button-complete-background-color;
                         }

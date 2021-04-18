@@ -22,16 +22,22 @@
 </head>
 <body  class="<?php if ($page !== 'todos') echo $page; ?>" >
 <div class="content-wrapper">
-    <?php if ($page === 'todos'): ?>
+    <?php if ($page === 'todos' || $page === 'done-todo' || $page === 'edit'): ?>
         <?php require_once('templates/includes/header.php'); ?>
         <main class="page-body">
             <div class="wrapper">
                 <div class="container">
                     <?php require_once("templates/includes/main-navigation-sidebar.php"); ?>
-                    <?php require_once("templates/pages/$page.php"); ?>
+                    <?php if($page !== 'edit'): ?>
+                        <?php require_once("templates/pages/$page.php"); ?>
+                    <?php endif; ?>
                 </div>
             </div>
-            <?php require_once("templates/includes/todo-popup.php");?>
+            <?php if($page === 'edit'): ?>
+                <?php require_once("templates/pages/$page.php");?>
+            <?php else: ?>
+                <?php require_once("templates/includes/todo-popup.php");?>
+            <?php endif; ?>
             <div class="blur"></div>
         </main>
     <?php else: ?>

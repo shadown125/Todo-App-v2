@@ -13,10 +13,10 @@
                 </div>
             </li>
             <li class="today">
-                <a href="#">Today</a>
+                <a href="<?php echo URLROOT; ?>">Today</a>
             </li>
             <li class="done-todos">
-                <a href="#">Done Todos</a>
+                <a href="<?php echo URLROOT . '/done-todo'; ?>">Done Todos</a>
             </li>
             <li class="settings">
                 <a href="#">Settings</a>

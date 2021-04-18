@@ -17,6 +17,10 @@ class TodoController extends AbstractController
         }
 
         if(isset($_SESSION['user_id'])) {
+            if(strpos((string) $actualLink, 'done-todo') !== false) {
+                $this->view->render('done-todo');
+            }
+
             $this->view->render('todos', [
                 'todo' => $this->todos()
             ]);
@@ -73,6 +77,44 @@ class TodoController extends AbstractController
         }
     }
 
+    public function getEditTodoAction(): void
+    {
+        session_start();
+        if($this->request->isPost()) {
+            $todo = $this->getTodo();
+
+            $this->view->render('edit',  $todo);
+        }
+    }
+
+    public function editSelectedTodoAction(): void
+    {
+        session_start();
+        if($this->request->hasPost()) {
+            $todoData = [
+                'title' => $this->request->postParam('title'),
+                'description' => $this->request->postParam('description'),
+                'user_id' => $_SESSION['user_id'],
+                'id' => $this->request->postParam('id'),
+                'title_err' => ''
+            ];
+
+            if(empty($todoData['title'])){
+                $todoData['title_err'] = 'U need to filled up the Title';
+            }
+
+            if(empty($todoData['title_err'])) {
+                $this->todoModel->update($todoData);
+                $this->redirect('./');
+                $this->view->render('todos', ['todo' => $this->todos()]);
+            } else {
+                $this->view->render('todos',  [
+                    'todo' => $this->todos()
+                ]);
+            }
+        }
+    }
+
     public function deleteAction(): void
     {
         if($this->request->isPost()) {
@@ -89,14 +131,16 @@ class TodoController extends AbstractController
         return $this->todoModel->getTodos($activeUser);
     }
 
-//    private function getTodo(): array
-//    {
-//        $todoId = (int) $this->request->getParam('id');
-//        if(!$todoId) {
-//            $this->redirect('./');
-//        }
-//        return $this->todoModel->get($todoId);
-//    }
+    private function getTodo(): array
+    {
+        if($this->request->isPost()) {
+            $todoId = (int) $this->request->postParam('id');
+            if(!$todoId) {
+                $this->redirect('./');
+            }
+        }
+        return $this->todoModel->get($todoId);
+    }
 
     public function registerAction(): void
     {
