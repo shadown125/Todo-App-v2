@@ -1210,6 +1210,92 @@ body.login .content-wrapper {
   }
 }
 
+/* line 1, src/styles/components/_progression.scss */
+.progression-content {
+  display: flex;
+  width: 100%;
+  height: 11.25rem;
+  background-color: #4C4177;
+  color: white;
+  border-radius: 0.9375rem;
+  border-style: none;
+  padding: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* line 17, src/styles/components/_progression.scss */
+.progression-content .date-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+@media print, screen and (min-width: 62.5em) {
+  /* line 17, src/styles/components/_progression.scss */
+  .progression-content .date-wrapper {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 90em) {
+  /* line 17, src/styles/components/_progression.scss */
+  .progression-content .date-wrapper {
+    margin-right: 3rem;
+  }
+}
+
+/* line 37, src/styles/components/_progression.scss */
+.progression-content .date-wrapper .day {
+  font-size: 3rem;
+}
+
+/* line 43, src/styles/components/_progression.scss */
+.progression-content .content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* line 47, src/styles/components/_progression.scss */
+.progression-content .content-wrapper .headline {
+  margin-bottom: 0.625rem;
+}
+
+/* line 52, src/styles/components/_progression.scss */
+.progression-content .content-wrapper .progression-bar {
+  min-height: 0.5rem;
+  background-color: grey;
+  border-radius: 0.9375rem;
+}
+
+/* line 62, src/styles/components/_progression.scss */
+.progression-content .content-wrapper .progression-bar .progressed {
+  width: 70%;
+  height: 100%;
+  border-radius: 0.9375rem;
+  background-color: #009FFD;
+}
+
+/* line 73, src/styles/components/_progression.scss */
+.progression-content .content-wrapper .additional-data-wrapper {
+  flex-grow: 1;
+}
+
+@media print, screen and (min-width: 37.5em) {
+  /* line 73, src/styles/components/_progression.scss */
+  .progression-content .content-wrapper .additional-data-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+/* line 80, src/styles/components/_progression.scss */
+.progression-content .content-wrapper .todo {
+  margin-left: auto;
+}
+
 /* line 2, src/styles/components/_register.scss */
 .register .button-back,
 .register .register-button {
@@ -1365,7 +1451,7 @@ body.login .content-wrapper {
 /* line 1, src/styles/components/_todos.scss */
 .todos {
   width: 100%;
-  height: 100%;
+  height: 71%;
   background-color: #4C4177;
   border-radius: 0.9375rem;
   padding: 1.125rem;
