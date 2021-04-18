@@ -17,5 +17,3 @@
         <button class="button" type="submit">Login</button>
     </div>
 </form>
-
-<?php echo $_SESSION['user_id']; ?>

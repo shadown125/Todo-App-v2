@@ -1024,7 +1024,27 @@ body.login .content-wrapper {
   }
 }
 
-/* line 147, src/styles/components/_main-navigation.scss */
+/* line 146, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation .logout {
+  color: white;
+  transition: color 0.2s linear;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  padding-bottom: 0.625rem;
+}
+
+/* line 4, src/styles/mixins/_button.scss */
+.aside-navigation .main-navigation .logout:active, .aside-navigation .main-navigation .logout:focus {
+  outline: none;
+}
+
+/* line 156, src/styles/components/_main-navigation.scss */
+.aside-navigation .main-navigation .logout:hover {
+  color: #4062BB;
+}
+
+/* line 161, src/styles/components/_main-navigation.scss */
 .aside-navigation .copyright {
   display: block;
   margin-top: auto;
@@ -1498,6 +1518,7 @@ body.login .content-wrapper {
 .todos .todos-wrapper ul li .header .headline {
   color: white;
   max-width: 50%;
+  word-break: break-word;
 }
 
 @media print, screen and (min-width: 37.5em) {
@@ -1507,7 +1528,7 @@ body.login .content-wrapper {
   }
 }
 
-/* line 111, src/styles/components/_todos.scss */
+/* line 114, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button {
   position: relative;
   display: block;
@@ -1521,7 +1542,7 @@ body.login .content-wrapper {
   outline: none;
 }
 
-/* line 120, src/styles/components/_todos.scss */
+/* line 123, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button::before {
   font-family: "icomoon";
   font-style: normal;
@@ -1534,12 +1555,12 @@ body.login .content-wrapper {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 123, src/styles/components/_todos.scss */
+/* line 126, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button:hover {
   cursor: pointer;
 }
 
-/* line 127, src/styles/components/_todos.scss */
+/* line 130, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-complete {
   transition: transform 0.2s;
   margin-left: auto;
@@ -1572,19 +1593,19 @@ body.login .content-wrapper {
   opacity: 0;
 }
 
-/* line 135, src/styles/components/_todos.scss */
+/* line 138, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-complete::before {
   content: "";
   color: #26F596;
 }
 
-/* line 140, src/styles/components/_todos.scss */
+/* line 143, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete,
 .todos .todos-wrapper ul li .header .button-edit {
   margin-left: 1rem;
 }
 
-/* line 146, src/styles/components/_todos.scss */
+/* line 149, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-edit {
   transition: transform 0.2s;
   background-color: #009FFD;
@@ -1616,13 +1637,13 @@ body.login .content-wrapper {
   opacity: 0;
 }
 
-/* line 151, src/styles/components/_todos.scss */
+/* line 154, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-edit::before {
   content: "";
   color: white;
 }
 
-/* line 156, src/styles/components/_todos.scss */
+/* line 159, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete {
   transition: transform 0.2s;
   background-color: #BA265D;
@@ -1656,22 +1677,23 @@ body.login .content-wrapper {
   opacity: 0;
 }
 
-/* line 165, src/styles/components/_todos.scss */
+/* line 168, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete::before {
   content: "";
   color: white;
   font-size: 1.25rem;
 }
 
-/* line 174, src/styles/components/_todos.scss */
+/* line 177, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .description {
   position: relative;
   color: white;
   margin-top: 0.5rem;
   padding-left: 2.125rem;
+  word-break: break-word;
 }
 
-/* line 183, src/styles/components/_todos.scss */
+/* line 189, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .description::before {
   content: "";
   position: absolute;

@@ -11,10 +11,11 @@ use PDO;
 
 class TodoModel extends AbstractModel implements ModelInterface
 {
-    public function getTodos(): array
+    public function getTodos(string $userId): array
     {
         try {
-            $query = "SELECT * FROM todo";
+            $userId = $this->conn->quote($userId);
+            $query = "SELECT * FROM todo WHERE user_id = $userId";
             $result = $this->conn->query($query);
             $note = $result->fetchAll(PDO::FETCH_ASSOC);
         } catch (Throwable $exception) {
@@ -24,28 +25,29 @@ class TodoModel extends AbstractModel implements ModelInterface
         return $note;
     }
 
-    public function get(int $id): array
-    {
-        try {
-            $query = "SELECT * FROM todo WHERE id = $id";
-            $result = $this->conn->query($query);
-            $todo = $result->fetch(PDO::FETCH_ASSOC);
-        } catch(Throwable $exception) {
-            throw new StorageException('Todo could not be downloaded', 400, $exception);
-        }
-        if(!$todo) {
-            throw new NotFoundException("Todo with id: $id doesn't exist");
-        }
-        return $todo;
-    }
+//    public function get(int $id): array
+//    {
+//        try {
+//            $query = "SELECT * FROM todo WHERE id = $id";
+//            $result = $this->conn->query($query);
+//            $todo = $result->fetch(PDO::FETCH_ASSOC);
+//        } catch(Throwable $exception) {
+//            throw new StorageException('Todo could not be downloaded', 400, $exception);
+//        }
+//        if(!$todo) {
+//            throw new NotFoundException("Todo with id: $id doesn't exist");
+//        }
+//        return $todo;
+//    }
 
     public function create(array $data): void
     {
         try {
             $title = $this->conn->quote($data['title']);
             $description = $this->conn->quote($data['description']);
+            (int) $userId = $this->conn->quote($data['user_id']);
 
-            $query = "INSERT INTO todo(title, description) VALUES($title, $description)";
+            $query = "INSERT INTO todo(user_id, title, description) VALUES($userId, $title, $description)";
 
             $this->conn->exec($query);
         } catch (Throwable $exception) {

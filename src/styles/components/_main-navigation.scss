@@ -143,6 +143,20 @@
 
             }
         }
+        .logout {
+            @include default-button-states;
+            color: $link-color;
+            transition: color 0.2s linear;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            padding: {
+                bottom: rem-calc(10);
+            }
+            &:hover {
+                color: $link-hover-color;
+            }
+        }
     }
     .copyright {
         display: block;

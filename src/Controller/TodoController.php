@@ -8,12 +8,27 @@ class TodoController extends AbstractController
 {
     public function renderSiteAction(): void
     {
+        session_start();
+
         $actualLink = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+        if(!isset($_SESSION['user_id']) && strpos($actualLink, 'login') === false && strpos($actualLink, 'register') === false) {
+            $this->redirect('./login');
+        }
+
         if(isset($_SESSION['user_id'])) {
             $this->view->render('todos', [
-            'todo' => $this->todoModel->getTodos()
+                'todo' => $this->todos()
             ]);
-            var_dump('lol');
+        }
+
+        if (!isset($_SESSION['user_id']) && strpos((string) $actualLink, 'login') !== false) {
+            $this->view->render('login', [
+                'email' => '',
+                'password' => '',
+                'email_err' => '',
+                'password_err' => '',
+            ]);
         }
 
         if (strpos((string) $actualLink, 'register') !== false || strpos((string) $actualLink, 'register/')) {
@@ -28,27 +43,34 @@ class TodoController extends AbstractController
                 'password_err' => '',
                 'confirm_password_err' => '',
             ]);
-        } else {
-            $this->view->render('login', [
-                'email' => '',
-                'password' => '',
-                'email_err' => '',
-                'password_err' => '',
-            ]);
         }
     }
 
     public function createAction(): void
     {
-     if($this->request->hasPost()) {
-         $todoData = [
+        session_start();
+        if($this->request->hasPost()) {
+            $todoData = [
              'title' => $this->request->postParam('title'),
-             'description' => $this->request->postParam('description')
-         ];
-         $this->todoModel->create($todoData);
-         $this->redirect('./');
-     }
-     $this->view->render('todos');
+             'description' => $this->request->postParam('description'),
+             'user_id' => $_SESSION['user_id'],
+             'title_err' => ''
+            ];
+
+            if(empty($todoData['title'])){
+                $todoData['title_err'] = 'U need to filled up the Title';
+            }
+
+            if(empty($todoData['title_err'])) {
+                $this->todoModel->create($todoData);
+                $this->redirect('./');
+                $this->view->render('todos', ['todo' => $this->todos()]);
+            } else {
+                $this->view->render('todos',  [
+                    'todo' => $this->todos()
+                ]);
+            }
+        }
     }
 
     public function deleteAction(): void
@@ -61,14 +83,20 @@ class TodoController extends AbstractController
         $this->view->render('todos');
     }
 
-    private function getTodo(): array
+    private function todos(): array
     {
-        $todoId = (int) $this->request->getParam('id');
-        if(!$todoId) {
-            $this->redirect('./');
-        }
-        return $this->todoModel->get($todoId);
+        $activeUser = $_SESSION['user_id'];
+        return $this->todoModel->getTodos($activeUser);
     }
+
+//    private function getTodo(): array
+//    {
+//        $todoId = (int) $this->request->getParam('id');
+//        if(!$todoId) {
+//            $this->redirect('./');
+//        }
+//        return $this->todoModel->get($todoId);
+//    }
 
     public function registerAction(): void
     {
@@ -157,7 +185,7 @@ class TodoController extends AbstractController
                 if($loggedInUser) {
                     $this->createUserSession($loggedInUser);
                 } else {
-                    $data['password_err'] = 'Password incorrect';
+                    $data['email_err'] = 'E-Mail or password are wrong. Please check it and try again';
 
                     $this->view->render('login', $data);
                 }
@@ -167,18 +195,30 @@ class TodoController extends AbstractController
         }
     }
 
-    public function createUserSession(array $user)
+    public function createUserSession(array $user): void
     {
         $user = $user[0];
 
+        session_start();
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_first_name'] = $user['first_name'];
         $_SESSION['user_last_name'] = $user['last_name'];
         $_SESSION['user_email'] = $user['email'];
 
-        $this->view->render('todos', [
-            'todo' => $this->todoModel->getTodos(),
-            'user' => $user
-        ]);
+        $this->redirect('./');
+    }
+
+    public function logoutAction(): void
+    {
+        session_start();
+
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_first_name']);
+        unset($_SESSION['user_last_name']);
+        unset($_SESSION['user_email']);
+
+        session_destroy();
+
+        $this->redirect('./');
     }
 }

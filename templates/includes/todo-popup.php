@@ -3,8 +3,8 @@
         <a href="./" class="button"></a>
         <form action="./?action=create" class="add-todo" method="post">
             <div>
-                <label for="title">Title:</label>
-                <input type="text" name="title" class="title" id="title" placeholder="Task name">
+                <label for="title">Title: <sup>*</sup></label>
+                <input type="text" name="title" class="title" id="title" placeholder="Task name" required>
             </div>
             <div>
                 <label for="description">Description:</label>

@@ -31,7 +31,7 @@
         <span class="invalid-feedback"><?php echo $params['confirm_password_err']; ?></span>
     </div>
     <div class="submitting-container">
-        <a href="<?php echo URLROOT; ?>" class="button-back">Back</a>
+        <a href="<?php echo URLROOT; ?>/login" class="button-back">Back</a>
         <button class="register-button" type="submit">Register</button>
     </div>
 </form>
