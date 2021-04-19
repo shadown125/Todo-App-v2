@@ -38,6 +38,7 @@
             <?php else: ?>
                 <?php require_once("templates/includes/todo-popup.php");?>
             <?php endif; ?>
+            <?php require_once("templates/includes/settings.php"); ?>
             <div class="blur"></div>
         </main>
     <?php else: ?>

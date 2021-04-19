@@ -24,7 +24,8 @@ class TodoController extends AbstractController
             }
 
             $this->view->render('todos', [
-                'todo' => $this->todos()
+                'todo' => $this->todos(),
+                'doneTodos' => $this->getDoneTodo()
             ]);
         }
 

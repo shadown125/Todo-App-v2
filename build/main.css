@@ -395,6 +395,277 @@ a:hover {
   color: #4062BB;
 }
 
+/* line 1, src/styles/elements/_settings.scss */
+.settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+/* line 15, src/styles/elements/_settings.scss */
+.settings.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 18, src/styles/elements/_settings.scss */
+.settings.is-active .content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@supports ((-webkit-backdrop-filter: blur(0.625rem)) or (backdrop-filter: blur(0.625rem))) {
+  /* line 1, src/styles/elements/_settings.scss */
+  .settings {
+    -webkit-backdrop-filter: blur(0.625rem);
+    backdrop-filter: blur(0.625rem);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* line 24, src/styles/elements/_settings.scss */
+.settings .content {
+  padding: 2rem;
+  width: 85%;
+  max-width: 56.25rem;
+  background-color: #2E3553;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.25);
+  transition: all 0.5s 0.2s;
+}
+
+/* line 38, src/styles/elements/_settings.scss */
+.settings .content .overview-settings.is-hide {
+  display: none;
+}
+
+/* line 42, src/styles/elements/_settings.scss */
+.settings .content .profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 46, src/styles/elements/_settings.scss */
+.settings .content .profile-container img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+/* line 56, src/styles/elements/_settings.scss */
+.settings .content .profile-container .profile-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* line 60, src/styles/elements/_settings.scss */
+.settings .content .profile-container .profile-information div {
+  color: white;
+}
+
+/* line 62, src/styles/elements/_settings.scss */
+.settings .content .profile-container .profile-information div:last-child {
+  margin-top: 0.375rem;
+}
+
+/* line 70, src/styles/elements/_settings.scss */
+.settings .content .headline {
+  text-align: center;
+  color: white;
+  margin-top: 1rem;
+}
+
+/* line 79, src/styles/elements/_settings.scss */
+.settings .content .level {
+  position: relative;
+}
+
+/* line 81, src/styles/elements/_settings.scss */
+.settings .content .level .bar {
+  height: 0.875rem;
+  width: 100%;
+  background-color: grey;
+  margin: 1rem 0;
+  border-radius: 0.9375rem;
+}
+
+/* line 91, src/styles/elements/_settings.scss */
+.settings .content .level .bar .progression-to-lvl-up {
+  height: 100%;
+  width: 70%;
+  background-image: linear-gradient(45deg, #3bc0ff, #33ff00);
+  border-radius: 0.9375rem;
+}
+
+/* line 102, src/styles/elements/_settings.scss */
+.settings .content .level .information {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+/* line 112, src/styles/elements/_settings.scss */
+.settings .content .options {
+  text-align: center;
+  width: 100%;
+}
+
+/* line 117, src/styles/elements/_settings.scss */
+.settings .content .options button {
+  display: block;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  padding: 1.5rem 0;
+  transition: background-color 0.2s linear;
+  border-radius: 0.9375rem;
+}
+
+/* line 4, src/styles/mixins/_button.scss */
+.settings .content .options button:active, .settings .content .options button:focus {
+  outline: none;
+}
+
+/* line 128, src/styles/elements/_settings.scss */
+.settings .content .options button:hover {
+  background-color: #777;
+}
+
+/* line 135, src/styles/elements/_settings.scss */
+.settings .content .button {
+  display: flex;
+  justify-content: flex-end;
+  width: 0;
+  margin-left: auto;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s linear;
+}
+
+/* line 4, src/styles/mixins/_button.scss */
+.settings .content .button:active, .settings .content .button:focus {
+  outline: none;
+}
+
+/* line 146, src/styles/elements/_settings.scss */
+.settings .content .button:hover {
+  color: #4062BB;
+}
+
+/* line 149, src/styles/elements/_settings.scss */
+.settings .content .button::before {
+  content: "";
+  font-family: "icomoon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.625rem;
+}
+
+/* line 156, src/styles/elements/_settings.scss */
+.settings .content .first-name-container,
+.settings .content .last-name-container,
+.settings .content .image-container {
+  display: none;
+}
+
+/* line 160, src/styles/elements/_settings.scss */
+.settings .content .first-name-container.is-active,
+.settings .content .last-name-container.is-active,
+.settings .content .image-container.is-active {
+  display: block;
+}
+
+/* line 163, src/styles/elements/_settings.scss */
+.settings .content .first-name-container .button-back,
+.settings .content .last-name-container .button-back,
+.settings .content .image-container .button-back {
+  display: block;
+  position: relative;
+  text-transform: uppercase;
+  border-radius: 6.25rem;
+  padding: 0.75rem 1.75rem;
+  transition: transform 0.2s, opacity 0.2s;
+  cursor: pointer;
+  color: white;
+  background-color: #A4508B;
+}
+
+/* line 4, src/styles/mixins/_button.scss */
+.settings .content .first-name-container .button-back:active, .settings .content .first-name-container .button-back:focus,
+.settings .content .last-name-container .button-back:active,
+.settings .content .last-name-container .button-back:focus,
+.settings .content .image-container .button-back:active,
+.settings .content .image-container .button-back:focus {
+  outline: none;
+}
+
+/* line 52, src/styles/mixins/_button.scss */
+.settings .content .first-name-container .button-back:hover,
+.settings .content .last-name-container .button-back:hover,
+.settings .content .image-container .button-back:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+/* line 55, src/styles/mixins/_button.scss */
+.settings .content .first-name-container .button-back:hover::after,
+.settings .content .last-name-container .button-back:hover::after,
+.settings .content .image-container .button-back:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+/* line 60, src/styles/mixins/_button.scss */
+.settings .content .first-name-container .button-back:active, .settings .content .first-name-container .button-back:focus,
+.settings .content .last-name-container .button-back:active,
+.settings .content .last-name-container .button-back:focus,
+.settings .content .image-container .button-back:active,
+.settings .content .image-container .button-back:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+/* line 65, src/styles/mixins/_button.scss */
+.settings .content .first-name-container .button-back::after,
+.settings .content .last-name-container .button-back::after,
+.settings .content .image-container .button-back::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 6.25rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.4s, opacity 0.4s;
+  background-color: #A4508B;
+}
+
 /* line 1, src/styles/elements/_todo-popup.scss */
 .todo-popup {
   display: flex;
@@ -1192,9 +1463,19 @@ body.login .content-wrapper {
   }
 }
 
+/* line 67, src/styles/components/_page-header.scss */
+.page-header .container .button-settings {
+  cursor: pointer;
+}
+
+/* line 4, src/styles/mixins/_button.scss */
+.page-header .container .button-settings:active, .page-header .container .button-settings:focus {
+  outline: none;
+}
+
 @media print, screen and (min-width: 62.5em) {
   /* line 67, src/styles/components/_page-header.scss */
-  .page-header .container .settings {
+  .page-header .container .button-settings {
     display: inline-block;
     width: 2.8125rem;
     height: 2.8125rem;
@@ -1204,8 +1485,8 @@ body.login .content-wrapper {
     border-radius: 12.5rem;
     transition: background-color 0.2s linear;
   }
-  /* line 83, src/styles/components/_page-header.scss */
-  .page-header .container .settings:hover {
+  /* line 85, src/styles/components/_page-header.scss */
+  .page-header .container .button-settings:hover {
     background-color: #667eea;
   }
 }
@@ -1272,10 +1553,10 @@ body.login .content-wrapper {
 
 /* line 62, src/styles/components/_progression.scss */
 .progression-content .content-wrapper .progression-bar .progressed {
-  width: 70%;
+  width: 0;
   height: 100%;
   border-radius: 0.9375rem;
-  background-color: #009FFD;
+  background-image: linear-gradient(45deg, #1fe6ff, #673ab7);
 }
 
 /* line 73, src/styles/components/_progression.scss */
@@ -1505,13 +1786,13 @@ body.login .content-wrapper {
 /* line 34, src/styles/components/_todos.scss */
 .todos .todos-header .headline {
   color: white;
+  margin-right: auto;
 }
 
-/* line 37, src/styles/components/_todos.scss */
+/* line 40, src/styles/components/_todos.scss */
 .todos .todos-header .button {
   transition: transform 0.2s;
   margin-right: 0.625rem;
-  margin-left: auto;
   width: 1.625rem;
   height: 1.625rem;
 }
@@ -1542,30 +1823,30 @@ body.login .content-wrapper {
   opacity: 0;
 }
 
-/* line 45, src/styles/components/_todos.scss */
+/* line 47, src/styles/components/_todos.scss */
 .todos .todos-header .button::before {
   content: "";
   color: #26F596;
 }
 
-/* line 49, src/styles/components/_todos.scss */
+/* line 51, src/styles/components/_todos.scss */
 .todos .todos-header .button::after {
   top: -1px;
 }
 
-/* line 53, src/styles/components/_todos.scss */
+/* line 55, src/styles/components/_todos.scss */
 .todos .todos-header .description {
   color: white;
   padding-left: 1.875rem;
 }
 
-/* line 58, src/styles/components/_todos.scss */
+/* line 60, src/styles/components/_todos.scss */
 .todos .todos-header .description::before {
   content: "";
   color: violet;
 }
 
-/* line 65, src/styles/components/_todos.scss */
+/* line 67, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul {
   list-style: none;
   margin: 0;
@@ -1583,24 +1864,24 @@ body.login .content-wrapper {
   content: none;
 }
 
-/* line 70, src/styles/components/_todos.scss */
+/* line 72, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li {
   margin-top: 0.625rem;
 }
 
-/* line 76, src/styles/components/_todos.scss */
+/* line 78, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li:first-child .header .circle {
   background-color: #A4508B;
 }
 
-/* line 83, src/styles/components/_todos.scss */
+/* line 85, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* line 87, src/styles/components/_todos.scss */
+/* line 89, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .circle {
   width: 1.25rem;
   height: 1.25rem;
@@ -1609,7 +1890,7 @@ body.login .content-wrapper {
   margin-right: 0.875rem;
 }
 
-/* line 100, src/styles/components/_todos.scss */
+/* line 102, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .headline {
   color: white;
   max-width: 50%;
@@ -1618,13 +1899,13 @@ body.login .content-wrapper {
 }
 
 @media print, screen and (min-width: 37.5em) {
-  /* line 100, src/styles/components/_todos.scss */
+  /* line 102, src/styles/components/_todos.scss */
   .todos .todos-wrapper ul li .header .headline {
     max-width: 75%;
   }
 }
 
-/* line 117, src/styles/components/_todos.scss */
+/* line 119, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button {
   position: relative;
   display: block;
@@ -1638,7 +1919,7 @@ body.login .content-wrapper {
   outline: none;
 }
 
-/* line 126, src/styles/components/_todos.scss */
+/* line 128, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button::before {
   font-family: "icomoon";
   font-style: normal;
@@ -1651,12 +1932,12 @@ body.login .content-wrapper {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 129, src/styles/components/_todos.scss */
+/* line 131, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header button:hover {
   cursor: pointer;
 }
 
-/* line 133, src/styles/components/_todos.scss */
+/* line 135, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-complete {
   transition: transform 0.2s;
   background-color: #bca0ff;
@@ -1688,19 +1969,19 @@ body.login .content-wrapper {
   opacity: 0;
 }
 
-/* line 138, src/styles/components/_todos.scss */
+/* line 140, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-complete::before {
   content: "";
   color: #26F596;
 }
 
-/* line 143, src/styles/components/_todos.scss */
+/* line 145, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete,
 .todos .todos-wrapper ul li .header .button-edit {
   margin-left: 1rem;
 }
 
-/* line 149, src/styles/components/_todos.scss */
+/* line 151, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-edit {
   transition: transform 0.2s;
   background-color: #009FFD;
@@ -1732,13 +2013,13 @@ body.login .content-wrapper {
   opacity: 0;
 }
 
-/* line 154, src/styles/components/_todos.scss */
+/* line 156, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-edit::before {
   content: "";
   color: white;
 }
 
-/* line 159, src/styles/components/_todos.scss */
+/* line 161, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete {
   transition: transform 0.2s;
   background-color: #BA265D;
@@ -1772,14 +2053,14 @@ body.login .content-wrapper {
   opacity: 0;
 }
 
-/* line 168, src/styles/components/_todos.scss */
+/* line 170, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .header .button-delete::before {
   content: "";
   color: white;
   font-size: 1.25rem;
 }
 
-/* line 177, src/styles/components/_todos.scss */
+/* line 179, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .description,
 .todos .todos-wrapper ul li .created {
   position: relative;
@@ -1789,7 +2070,7 @@ body.login .content-wrapper {
   word-break: break-word;
 }
 
-/* line 190, src/styles/components/_todos.scss */
+/* line 192, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .description::before,
 .todos .todos-wrapper ul li .created::before {
   content: "";
@@ -1803,7 +2084,7 @@ body.login .content-wrapper {
   border-style: solid;
 }
 
-/* line 205, src/styles/components/_todos.scss */
+/* line 207, src/styles/components/_todos.scss */
 .todos .todos-wrapper ul li .created::before {
   top: -0.625rem;
   height: 150%;

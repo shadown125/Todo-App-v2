@@ -7,7 +7,7 @@
                 <input type="text" class="search-for-task" placeholder="Search for tasks">
                 <button class="button"></button>
             </form>
-            <a href="#" class="settings"></a>
+            <button class="button-settings" data-settings-button></button>
         </div>
     </div>
 </header>

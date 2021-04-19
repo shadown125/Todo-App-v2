@@ -64,7 +64,9 @@
                 display: none;
             }
         }
-        .settings {
+        .button-settings {
+            @include default-button-states();
+            cursor: pointer;
             @include breakpoint(large) {
                 display: inline-block;
                 width: rem-calc(45);

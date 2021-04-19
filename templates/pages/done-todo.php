@@ -3,7 +3,6 @@
     <section class="todos">
         <div class="todos-header">
             <h3 class="h3 headline">Completed Todos</h3>
-            <a href="./#todo-popup" class="button add-todo"></a>
             <div class="description">Today</div>
         </div>
         <div class="todos-wrapper">
