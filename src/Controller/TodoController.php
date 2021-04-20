@@ -145,11 +145,40 @@ class TodoController extends AbstractController
 
     public function doneTodoAction(): void
     {
+        session_start();
+
         if($this->request->isPost()) {
             $todoId = (int) $this->request->postParam('id');
             if(!$todoId) {
                 $this->redirect('./');
             }
+
+            $dataLevel = [
+                'userId' => $_SESSION['user_id'],
+                'userCurrentLevel' => $_SESSION['user_level'],
+                'userGainedExp' => $_SESSION['user_exp'],
+                'userExpToLvlUp' => $_SESSION['user_lvl_up']
+            ];
+
+            $multiplayer = 2.7;
+
+            if($_SESSION['user_level'] >= 2) {
+                $multiplayer = 1.5;
+            }
+
+            $dataLevel['userGainedExp'] = $dataLevel['userGainedExp'] + 15 * 1.2;
+
+            if($dataLevel['userGainedExp'] >= $dataLevel['userExpToLvlUp']) {
+                $dataLevel['userCurrentLevel'] = $dataLevel['userCurrentLevel'] + 1;
+                $dataLevel['userExpToLvlUp'] = $dataLevel['userExpToLvlUp'] * $multiplayer;
+
+                $_SESSION['user_level'] = round($dataLevel['userCurrentLevel']);
+                $_SESSION['user_lvl_up'] = round($dataLevel['userExpToLvlUp']);
+            }
+
+            $_SESSION['user_exp'] = round($dataLevel['userGainedExp']);
+
+            $this->todoModel->updateLevel($dataLevel);
             $this->todoModel->saveDoneTodo($todoId);
         }
         $this->redirect('./');
@@ -278,6 +307,9 @@ class TodoController extends AbstractController
         $_SESSION['user_first_name'] = $user['first_name'];
         $_SESSION['user_last_name'] = $user['last_name'];
         $_SESSION['user_email'] = $user['email'];
+        $_SESSION['user_level'] = $user['level'];
+        $_SESSION['user_exp'] = $user['exp'];
+        $_SESSION['user_lvl_up'] = $user['level_up'];
 
         $this->redirect('./');
     }

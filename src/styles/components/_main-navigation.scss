@@ -169,3 +169,24 @@
         color: $aside-copyright-paragraph-color;
     }
 }
+
+.left-side-wrapper {
+    position: relative;
+    .current-level {
+        position: absolute;
+        bottom: 0;
+        right: rem-calc(10);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: rem-calc(24);
+        height: rem-calc(24);
+        border: {
+            radius: 50%;
+        }
+        color: white;
+        background: {
+            color: #A4508B;
+        }
+    }
+}

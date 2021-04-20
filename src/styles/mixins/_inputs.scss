@@ -22,3 +22,12 @@
         color: transparent;
     }
 }
+
+.input-option {
+    @include input($focus-background-color: $settings-input-background-color);
+    @include breakpoint('large') {
+        max: {
+            width: 50%;
+        }
+    }
+}

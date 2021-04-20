@@ -30,8 +30,12 @@ var ProgressionBar = /*#__PURE__*/function () {
 
     this.doneCounter = jquery__WEBPACK_IMPORTED_MODULE_1___default()('.doneCounter').text();
     this.todoCounter = jquery__WEBPACK_IMPORTED_MODULE_1___default()('.todoCounter').text();
+    this.gainExp = jquery__WEBPACK_IMPORTED_MODULE_1___default()('[data-gained-exp]').text();
+    this.expToLvlUp = jquery__WEBPACK_IMPORTED_MODULE_1___default()('[data-exp-to-lvl-up]').text();
     this.progressedLine = jquery__WEBPACK_IMPORTED_MODULE_1___default()('.progressed');
+    this.progressedExpLine = jquery__WEBPACK_IMPORTED_MODULE_1___default()('[data-progression-to-lvl-up]');
     this.updateTheProgressionLine();
+    this.updateTheProgressionInSettings();
   }
 
   _createClass(ProgressionBar, [{
@@ -42,6 +46,14 @@ var ProgressionBar = /*#__PURE__*/function () {
       var total = convertedDoneCounter + convertedTodoCounter;
       var percent = convertedDoneCounter * 100 / total;
       this.progressedLine.css('width', "".concat(percent, "%"));
+    }
+  }, {
+    key: "updateTheProgressionInSettings",
+    value: function updateTheProgressionInSettings() {
+      var convertedExp = Number(this.gainExp);
+      var convertedExpToLvlUp = Number(this.expToLvlUp);
+      var percent = convertedExp * 100 / convertedExpToLvlUp;
+      this.progressedExpLine.css('width', "".concat(percent, "%"));
     }
   }]);
 
@@ -78,19 +90,19 @@ var SettingsEvents = /*#__PURE__*/function () {
 
     this.settingsContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-settings]');
     this.overviewContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-overview-settings]');
-    this.firstNameContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-first-name-container]');
-    this.lastNameContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-last-name-container]');
+    this.nameContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-name-container]');
+    this.passwordContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-password-container]');
     this.imageContainer = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-image-container]');
-    this.firstNameButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-first-name]');
-    this.lastNameButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-last-name]');
+    this.nameButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-name]');
     this.imageButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-image]');
+    this.passwordButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-password]');
     this.settingsButtonBack = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-settings-button-back]');
     this.optionBackButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-button-back-in-option]');
     this.settingsButtonBack.on('click', this.resetSettings.bind(this));
     this.optionBackButton.on('click', this.goToSettingsOverview.bind(this));
-    this.firstNameButton.on('click', this.showFirstNameOption.bind(this));
-    this.lastNameButton.on('click', this.showLastNameOption.bind(this));
+    this.nameButton.on('click', this.showNameOption.bind(this));
     this.imageButton.on('click', this.showImageOption.bind(this));
+    this.passwordButton.on('click', this.showPasswordOption.bind(this));
   }
 
   _createClass(SettingsEvents, [{
@@ -102,9 +114,9 @@ var SettingsEvents = /*#__PURE__*/function () {
       setTimeout(function () {
         _this.overviewContainer.removeClass('is-hide');
 
-        _this.firstNameContainer.removeClass('is-active');
+        _this.nameContainer.removeClass('is-active');
 
-        _this.lastNameContainer.removeClass('is-active');
+        _this.passwordContainer.removeClass('is-active');
 
         _this.imageContainer.removeClass('is-active');
       }, 250);
@@ -114,21 +126,21 @@ var SettingsEvents = /*#__PURE__*/function () {
     value: function goToSettingsOverview() {
       this.settingsContainer.addClass('is-active');
       this.overviewContainer.removeClass('is-hide');
-      this.firstNameContainer.removeClass('is-active');
-      this.lastNameContainer.removeClass('is-active');
+      this.nameContainer.removeClass('is-active');
+      this.passwordContainer.removeClass('is-active');
       this.imageContainer.removeClass('is-active');
     }
   }, {
-    key: "showFirstNameOption",
-    value: function showFirstNameOption() {
+    key: "showNameOption",
+    value: function showNameOption() {
       this.overviewContainer.addClass('is-hide');
-      this.firstNameContainer.addClass('is-active');
+      this.nameContainer.addClass('is-active');
     }
   }, {
-    key: "showLastNameOption",
-    value: function showLastNameOption() {
+    key: "showPasswordOption",
+    value: function showPasswordOption() {
       this.overviewContainer.addClass('is-hide');
-      this.lastNameContainer.addClass('is-active');
+      this.passwordContainer.addClass('is-active');
     }
   }, {
     key: "showImageOption",

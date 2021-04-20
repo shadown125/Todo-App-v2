@@ -4,30 +4,30 @@ export default class SettingsEvents {
     constructor() {
         this.settingsContainer = $('[data-settings]');
         this.overviewContainer = $('[data-overview-settings]');
-        this.firstNameContainer = $('[data-first-name-container]');
-        this.lastNameContainer = $('[data-last-name-container]');
+        this.nameContainer = $('[data-name-container]');
+        this.passwordContainer = $('[data-password-container]');
         this.imageContainer = $('[data-image-container]');
 
-        this.firstNameButton = $('[data-first-name]');
-        this.lastNameButton = $('[data-last-name]');
-        this.imageButton = $('[data-image]')
+        this.nameButton = $('[data-name]');
+        this.imageButton = $('[data-image]');
+        this.passwordButton = $('[data-password]');
         this.settingsButtonBack = $('[data-settings-button-back]');
         this.optionBackButton = $('[data-button-back-in-option]');
 
 
         this.settingsButtonBack.on('click', this.resetSettings.bind(this));
         this.optionBackButton.on('click', this.goToSettingsOverview.bind(this));
-        this.firstNameButton.on('click', this.showFirstNameOption.bind(this));
-        this.lastNameButton.on('click', this.showLastNameOption.bind(this));
+        this.nameButton.on('click', this.showNameOption.bind(this));
         this.imageButton.on('click', this.showImageOption.bind(this));
+        this.passwordButton.on('click', this.showPasswordOption.bind(this));
     }
 
     resetSettings() {
         this.settingsContainer.removeClass('is-active');
         setTimeout(()=> {
             this.overviewContainer.removeClass('is-hide');
-            this.firstNameContainer.removeClass('is-active');
-            this.lastNameContainer.removeClass('is-active');
+            this.nameContainer.removeClass('is-active');
+            this.passwordContainer.removeClass('is-active');
             this.imageContainer.removeClass('is-active');
         }, 250);
     }
@@ -35,19 +35,19 @@ export default class SettingsEvents {
     goToSettingsOverview() {
         this.settingsContainer.addClass('is-active');
         this.overviewContainer.removeClass('is-hide');
-        this.firstNameContainer.removeClass('is-active');
-        this.lastNameContainer.removeClass('is-active');
+        this.nameContainer.removeClass('is-active');
+        this.passwordContainer.removeClass('is-active');
         this.imageContainer.removeClass('is-active');
     }
 
-    showFirstNameOption() {
+    showNameOption() {
         this.overviewContainer.addClass('is-hide');
-        this.firstNameContainer.addClass('is-active');
+        this.nameContainer.addClass('is-active');
     }
 
-    showLastNameOption() {
+    showPasswordOption() {
         this.overviewContainer.addClass('is-hide');
-        this.lastNameContainer.addClass('is-active');
+        this.passwordContainer.addClass('is-active');
     }
 
     showImageOption() {

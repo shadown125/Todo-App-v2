@@ -58,7 +58,7 @@
                 flex-direction: column;
                 justify-content: center;
                 div {
-                    color: white;
+                    color: $settings-profile-information-color;
                     &:last-child {
                         margin: {
                             top: rem-calc(6);
@@ -71,7 +71,7 @@
             text: {
                 align: center;
             }
-            color: white;
+            color: $settings-headline-color;
             margin: {
                 top: rem-calc(16);
             }
@@ -82,7 +82,7 @@
                 height: rem-calc(14);
                 width: 100%;
                 background: {
-                    color: grey;
+                    color: $settings-level-bar-background-color;
                 }
                 margin: rem-calc(16) 0;
                 border: {
@@ -90,12 +90,17 @@
                 }
                 .progression-to-lvl-up {
                     height: 100%;
-                    width: 70%;
                     background: {
-                        image: linear-gradient(45deg, #3bc0ff, #33ff00);
+                        image: linear-gradient(45deg, $settings-level-progression-bar-color-1, $settings-level-progression-bar-color-2);
                     }
                     border: {
                         radius: rem-calc(15);
+                    }
+                    animation: progressAnimation 2s ease-in-out;
+                    @keyframes progressAnimation {
+                        from {
+                            width: 0;
+                        }
                     }
                 }
             }
@@ -110,6 +115,13 @@
             }
         }
         .options {
+            &.delete button {
+                &:hover {
+                    background: {
+                        color: $settings-option-delete-button-background-color;
+                    }
+                }
+            }
             text: {
                 align: center;
             }
@@ -153,8 +165,8 @@
                 }
             }
         }
-        .first-name-container,
-        .last-name-container,
+        .name-container,
+        .password-container,
         .image-container {
             display: none;
             &.is-active {
@@ -165,11 +177,38 @@
                 @include custom-big-button();
             }
         }
-        .first-name-container {
-
-
+        .name-container {
+            position: relative;
+            .form {
+                margin: rem-calc(16) 0;
+                div {
+                    display: flex;
+                    flex: {
+                        direction: column;
+                    }
+                    margin: {
+                        bottom: rem-calc(10);
+                    }
+                }
+            }
+            label {
+                color: white;
+                padding: {
+                    left: rem-calc(10);
+                }
+                margin: {
+                    bottom: rem-calc(6);
+                }
+            }
+            .submit {
+                @include default-button-states();
+                @include custom-big-button($background-color: #009FFD);
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
         }
-        .last-name-container {
+        .password-container {
 
         }
         .image-container {

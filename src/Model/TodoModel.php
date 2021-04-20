@@ -45,6 +45,21 @@ class TodoModel extends AbstractModel implements ModelInterface
         }
     }
 
+    public function updateLevel(array $data): void {
+        try {
+            $userId = $this->conn->quote($data['userId']);
+            $userCurrentLevel = $this->conn->quote((string) $data['userCurrentLevel']);
+            $userGainedExp = $this->conn->quote((string) $data['userGainedExp']);
+            $userExpToLvlUp = $this->conn->quote((string) $data['userExpToLvlUp']);
+
+            $query = "UPDATE users SET level = $userCurrentLevel, exp = $userGainedExp, level_up = $userExpToLvlUp WHERE id = $userId";
+
+            $this->conn->exec($query);
+        } catch(Throwable $exception) {
+            throw new StorageException('Level could not be Updated', 400, dump($exception));
+        }
+    }
+
     public function getDoneTodo(string $userId): array
     {
         try {

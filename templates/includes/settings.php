@@ -6,17 +6,15 @@
             <h3 class="headline h3">Your Level</h3>
             <div class="level">
                 <div class="bar">
-                    <div class="progression-to-lvl-up"></div>
+                    <div class="progression-to-lvl-up" data-progression-to-lvl-up></div>
                 </div>
                 <div class="information">
-                    <span class="gained">30</span> / <span class="to-lvl-up">65</span>
+                    <span class="gained" data-gained-exp><?php echo $_SESSION['user_exp']; ?></span> /
+                    <span class="to-lvl-up" data-exp-to-lvl-up><?php echo $_SESSION['user_lvl_up']; ?></span>
                 </div>
             </div>
             <div class="options">
-                <button data-first-name>Change First Name</button>
-            </div>
-            <div class="options">
-                <button data-last-name>Change Last Name</button>
+                <button data-name>Change Name</button>
             </div>
             <div class="options">
                 <button data-password>Change password</button>
@@ -24,12 +22,15 @@
             <div class="options">
                 <button data-image>Change Image</button>
             </div>
+            <div class="options delete">
+                <button>Delete account</button>
+            </div>
             <div class="options">
                 <button>Logout</button>
             </div>
         </div>
-        <?php require_once("templates/includes/first-name-popup.php"); ?>
-        <?php require_once("templates/includes/last-name-popup.php"); ?>
+        <?php require_once("templates/includes/name-popup.php"); ?>
+        <?php require_once("templates/includes/password-popup.php"); ?>
         <?php require_once("templates/includes/image-popup.php"); ?>
     </div>
 </div>
