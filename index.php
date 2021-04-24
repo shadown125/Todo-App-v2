@@ -17,7 +17,7 @@ use App\Request;
 use App\Exception\AppException;
 use App\Exception\ConfigurationException;
 
-$request = new Request($_GET, $_POST, $_SERVER);
+$request = new Request($_GET, $_POST, $_FILES, $_SERVER);
 
 try {
     AbstractController::initConfiguration($configuration);

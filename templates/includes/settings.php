@@ -23,10 +23,14 @@
                 <button data-image>Change Image</button>
             </div>
             <div class="options delete">
-                <button>Delete account</button>
+                <form action="./?action=deleteUser" method="post">
+                    <button type="submit">Delete account</button>
+                </form>
             </div>
             <div class="options">
-                <button>Logout</button>
+                <form action="./?action=logout" method="post">
+                    <button type="submit">Logout</button>
+                </form>
             </div>
         </div>
         <?php require_once("templates/includes/name-popup.php"); ?>

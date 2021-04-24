@@ -45,6 +45,21 @@ class TodoModel extends AbstractModel implements ModelInterface
         }
     }
 
+    public function updateName(array $data): void
+    {
+        try {
+            $userId = $this->conn->quote($data['user_id']);
+            $firstName = $this->conn->quote((string) $data['first_name']);
+            $lastName = $this->conn->quote((string) $data['last_name']);
+
+            $query = "UPDATE users SET first_name = $firstName, last_name = $lastName WHERE id = $userId";
+
+            $this->conn->exec($query);
+        } catch(Throwable $exception) {
+            throw new StorageException('Name could not be updated', 400, dump($exception));
+        }
+    }
+
     public function updateLevel(array $data): void {
         try {
             $userId = $this->conn->quote($data['userId']);
@@ -136,6 +151,64 @@ class TodoModel extends AbstractModel implements ModelInterface
             $this->conn->exec($query);
         } catch(Throwable $exception) {
             throw new StorageException('Todo could not be deleted', 400, $exception);
+        }
+    }
+
+    public function deleteUser(string $userId): void
+    {
+        try {
+            $userId = $this->conn->quote($userId);
+            $query = "DELETE FROM users WHERE id = $userId LIMIT 1";
+            $this->conn->exec($query);
+        } catch(Throwable $exception) {
+            throw new StorageException('User could not be deleted', 400, $exception);
+        }
+    }
+
+    public function uploadImage(array $data): void
+    {
+        dump($data);
+        try {
+            $userId = $this->conn->quote($data['user_id']);
+            $imageName = $this->conn->quote($data['imageName']);
+
+            $query = "UPDATE users SET profile_image = $imageName WHERE id = $userId";
+
+            $this->conn->exec($query);
+        } catch (Throwable $exception) {
+            throw new StorageException('Image could not be updated', 400, $exception);
+        }
+    }
+
+    public function updatePassword(array $data): void
+    {
+        try {
+            $userId = $this->conn->quote($data['user_id']);
+            $newPassword = $this->conn->quote($data['new_password']);
+
+            $query = "UPDATE users SET password = $newPassword WHERE id = $userId";
+
+            $this->conn->exec($query);
+        } catch (Throwable $exception) {
+            throw new StorageException('Password could not be updated', 400, $exception);
+        }
+    }
+
+    public function checkPassword(array $data): bool
+    {
+        $userId = $this->conn->quote($data['user_id']);
+        $password = $data['password'];
+
+        $query = "SELECT password FROM users WHERE id = $userId";
+        $result = $this->conn->query($query);
+        $hashedPassword = $result->fetch(PDO::FETCH_ASSOC);
+
+        $hashedPassword =  $hashedPassword['password'];
+
+        if(password_verify($password, $hashedPassword)) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

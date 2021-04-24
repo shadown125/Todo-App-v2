@@ -8,12 +8,14 @@ class Request
 {
     private array $get = [];
     private array $post = [];
+    private array $postFiles;
     private array $server = [];
 
-    public function __construct(array $get, array $post, array $server)
+    public function __construct(array $get, array $post, array $postFiles, array $server)
     {
         $this->get = $get;
         $this->post = $post;
+        $this->postFiles = $postFiles;
         $this->server = $server;
     }
 
@@ -40,5 +42,10 @@ class Request
     public function postParam(string $name, $default = null)
     {
         return $this->post[$name] ?? $default;
+    }
+
+    public function postFile(string $name, $default = null)
+    {
+        return $this->postFiles[$name] ?? $default;
     }
 }

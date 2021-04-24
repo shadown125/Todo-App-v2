@@ -169,6 +169,7 @@
         .password-container,
         .image-container {
             display: none;
+            position: relative;
             &.is-active {
                 display: block;
             }
@@ -176,9 +177,6 @@
                 @include default-button-states();
                 @include custom-big-button();
             }
-        }
-        .name-container {
-            position: relative;
             .form {
                 margin: rem-calc(16) 0;
                 div {
@@ -208,10 +206,10 @@
                 right: 0;
             }
         }
-        .password-container {
+        .name-container {
 
         }
-        .image-container {
+        .password-container {
 
         }
     }

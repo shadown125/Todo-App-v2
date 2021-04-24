@@ -1,6 +1,6 @@
 <div class="name-container" data-name-container>
     <?php require("templates/includes/profile-popup.php"); ?>
-    <form action="#" method="post" class="form">
+    <form action="./?action=updateName" method="post" class="form">
         <div>
             <label for="new-name">New first name:</label>
             <input type="text" class="input-option" name="new-name" id="new-name" placeholder="Your new first name">

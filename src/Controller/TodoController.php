@@ -80,6 +80,118 @@ class TodoController extends AbstractController
         }
     }
 
+    public function changeImageAction(): void
+    {
+        session_start();
+
+        if($this->request->isPost()) {
+            $data = [
+                'user_id' => $_SESSION['user_id'],
+                'imageData' => $this->request->postFile('profile-image'),
+                'imageName' => $this->request->postFile('profile-image'),
+            ];
+            $profileImageName = time() . '_' . $data['imageName']['name'];
+
+            $data['imageName'] = $profileImageName;
+
+            $target = dirname(__DIR__, 1) . '/pics/' . $profileImageName;
+
+            if(move_uploaded_file($data['imageData']['tmp_name'], $target)) {
+                $_SESSION['user_profile_image'] = $profileImageName;
+
+                $this->todoModel->uploadImage($data);
+                $this->redirect('./');
+                $this->view->render('todos', ['todo' => $this->todos()]);
+            } else {
+                $this->redirect('./');
+            }
+        }
+    }
+
+    public function updatePasswordAction(): void
+    {
+        session_start();
+
+        if($this->request->isPost()) {
+            $dataName = [
+                'user_id' => $_SESSION['user_id'],
+                'password' => $this->request->postParam('current-password'),
+                'new_password' => $this->request->postParam('new-password'),
+                'new_repeated_password' => $this->request->postParam('repeat-new-password'),
+                'new_repeated_password_err' => '',
+            ];
+
+            if($dataName['new_password'] !== $dataName['new_repeated_password']) {
+                $dataName['new_repeated_password_err'] = 'The password is not the same';
+            }
+
+            $passwordCheck = $this->todoModel->checkPassword($dataName);
+
+            if($passwordCheck) {
+                if(empty($dataName['new_repeated_password_err'])) {
+
+                    $dataName['new_password'] = password_hash($dataName['new_password'], PASSWORD_DEFAULT);
+
+                    $this->todoModel->updatePassword($dataName);
+                    $this->redirect('./');
+                    $this->view->render('todos', [
+                        'todo' => $this->todos(),
+                        'doneTodos' => $this->getDoneTodo()
+                    ]);
+                } else {
+                    $this->redirect('./');
+                }
+            } else {
+                $this->redirect('./');
+            }
+        }
+    }
+
+    public function updateNameAction(): void
+    {
+        session_start();
+
+        if($this->request->isPost()) {
+            $dataName = [
+                'user_id' => $_SESSION['user_id'],
+                'first_name' => $this->request->postParam('new-name'),
+                'last_name' => $this->request->postParam('new-last-name'),
+                'first_name_err' => '',
+                'last_name_err' => '',
+            ];
+
+            if($_SESSION['user_first_name'] === $dataName['first_name']) {
+                $dataName['first_name_err'] = 'Your new name is the same name that you already have. Please change it';
+            }
+
+            if($_SESSION['user_last_name'] === $dataName['last_name']) {
+                $dataName['last_name_err'] = 'Your new last name is the same name that you already have. Please change it';
+            }
+
+            if(empty($dataName['first_name'])) {
+                $dataName['first_name'] = $_SESSION['user_first_name'];
+            }
+
+            if(empty($dataName['last_name'])) {
+                $dataName['last_name'] = $_SESSION['user_last_name'];
+            }
+
+
+            if(empty($dataName['last_name_err']) && empty($dataName['first_name_err'])) {
+                $this->todoModel->updateName($dataName);
+                $_SESSION['user_first_name'] = $dataName['first_name'];
+                $_SESSION['user_last_name'] = $dataName['last_name'];
+                $this->redirect('./');
+                $this->view->render('todos', [
+                    'todo' => $this->todos(),
+                    'doneTodos' => $this->getDoneTodo()
+                ]);
+            } else {
+                $this->redirect('./');
+            }
+        }
+    }
+
     public function getEditTodoAction(): void
     {
         session_start();
@@ -134,6 +246,27 @@ class TodoController extends AbstractController
             $id = (int) $this->request->postParam('id');
             $this->todoModel->deleteDoneTodo($id);
             $this->redirect('./done-todo');
+        }
+    }
+
+    public function deleteUserAction(): void
+    {
+        session_start();
+        if($this->request->isPost()) {
+            $userId = $_SESSION['user_id'];
+            $this->todoModel->deleteUser($userId);
+
+            unset($_SESSION['user_id']);
+            unset($_SESSION['user_first_name']);
+            unset($_SESSION['user_last_name']);
+            unset($_SESSION['user_email']);
+            unset($_SESSION['user_profile_image']);
+            unset($_SESSION['user_level']);
+            unset($_SESSION['user_exp']);
+            unset($_SESSION['user_lvl_up']);
+
+            session_destroy();
+            $this->redirect('./');
         }
     }
 
@@ -306,6 +439,8 @@ class TodoController extends AbstractController
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_first_name'] = $user['first_name'];
         $_SESSION['user_last_name'] = $user['last_name'];
+        $_SESSION['user_password'] = $user['password'];
+        $_SESSION['user_profile_image'] = $user['profile_image'];
         $_SESSION['user_email'] = $user['email'];
         $_SESSION['user_level'] = $user['level'];
         $_SESSION['user_exp'] = $user['exp'];
@@ -322,6 +457,10 @@ class TodoController extends AbstractController
         unset($_SESSION['user_first_name']);
         unset($_SESSION['user_last_name']);
         unset($_SESSION['user_email']);
+        unset($_SESSION['user_profile_image']);
+        unset($_SESSION['user_level']);
+        unset($_SESSION['user_exp']);
+        unset($_SESSION['user_lvl_up']);
 
         session_destroy();
 
