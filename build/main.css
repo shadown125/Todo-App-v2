@@ -638,22 +638,25 @@ a:hover {
 /* line 168, src/styles/elements/_settings-popup.scss */
 .settings .content .name-container,
 .settings .content .password-container,
-.settings .content .image-container {
+.settings .content .image-container,
+.settings .content .delete-container {
   display: none;
   position: relative;
 }
 
-/* line 173, src/styles/elements/_settings-popup.scss */
+/* line 174, src/styles/elements/_settings-popup.scss */
 .settings .content .name-container.is-active,
 .settings .content .password-container.is-active,
-.settings .content .image-container.is-active {
+.settings .content .image-container.is-active,
+.settings .content .delete-container.is-active {
   display: block;
 }
 
-/* line 176, src/styles/elements/_settings-popup.scss */
+/* line 177, src/styles/elements/_settings-popup.scss */
 .settings .content .name-container .button-back,
 .settings .content .password-container .button-back,
-.settings .content .image-container .button-back {
+.settings .content .image-container .button-back,
+.settings .content .delete-container .button-back {
   display: block;
   position: relative;
   text-transform: uppercase;
@@ -670,14 +673,17 @@ a:hover {
 .settings .content .password-container .button-back:active,
 .settings .content .password-container .button-back:focus,
 .settings .content .image-container .button-back:active,
-.settings .content .image-container .button-back:focus {
+.settings .content .image-container .button-back:focus,
+.settings .content .delete-container .button-back:active,
+.settings .content .delete-container .button-back:focus {
   outline: none;
 }
 
 /* line 52, src/styles/mixins/_button.scss */
 .settings .content .name-container .button-back:hover,
 .settings .content .password-container .button-back:hover,
-.settings .content .image-container .button-back:hover {
+.settings .content .image-container .button-back:hover,
+.settings .content .delete-container .button-back:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
@@ -685,7 +691,8 @@ a:hover {
 /* line 55, src/styles/mixins/_button.scss */
 .settings .content .name-container .button-back:hover::after,
 .settings .content .password-container .button-back:hover::after,
-.settings .content .image-container .button-back:hover::after {
+.settings .content .image-container .button-back:hover::after,
+.settings .content .delete-container .button-back:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
@@ -695,7 +702,9 @@ a:hover {
 .settings .content .password-container .button-back:active,
 .settings .content .password-container .button-back:focus,
 .settings .content .image-container .button-back:active,
-.settings .content .image-container .button-back:focus {
+.settings .content .image-container .button-back:focus,
+.settings .content .delete-container .button-back:active,
+.settings .content .delete-container .button-back:focus {
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
@@ -703,7 +712,8 @@ a:hover {
 /* line 65, src/styles/mixins/_button.scss */
 .settings .content .name-container .button-back::after,
 .settings .content .password-container .button-back::after,
-.settings .content .image-container .button-back::after {
+.settings .content .image-container .button-back::after,
+.settings .content .delete-container .button-back::after {
   content: "";
   display: inline-block;
   height: 100%;
@@ -717,35 +727,39 @@ a:hover {
   background-color: #A4508B;
 }
 
-/* line 180, src/styles/elements/_settings-popup.scss */
+/* line 181, src/styles/elements/_settings-popup.scss */
 .settings .content .name-container .form,
 .settings .content .password-container .form,
-.settings .content .image-container .form {
+.settings .content .image-container .form,
+.settings .content .delete-container .form {
   margin: 1rem 0;
 }
 
-/* line 182, src/styles/elements/_settings-popup.scss */
+/* line 183, src/styles/elements/_settings-popup.scss */
 .settings .content .name-container .form div,
 .settings .content .password-container .form div,
-.settings .content .image-container .form div {
+.settings .content .image-container .form div,
+.settings .content .delete-container .form div {
   display: flex;
   flex-direction: column;
   margin-bottom: 0.625rem;
 }
 
-/* line 192, src/styles/elements/_settings-popup.scss */
+/* line 193, src/styles/elements/_settings-popup.scss */
 .settings .content .name-container label,
 .settings .content .password-container label,
-.settings .content .image-container label {
+.settings .content .image-container label,
+.settings .content .delete-container label {
   color: white;
   padding-left: 0.625rem;
   margin-bottom: 0.375rem;
 }
 
-/* line 201, src/styles/elements/_settings-popup.scss */
+/* line 202, src/styles/elements/_settings-popup.scss */
 .settings .content .name-container .submit,
 .settings .content .password-container .submit,
-.settings .content .image-container .submit {
+.settings .content .image-container .submit,
+.settings .content .delete-container .submit {
   display: block;
   position: relative;
   text-transform: uppercase;
@@ -765,14 +779,17 @@ a:hover {
 .settings .content .password-container .submit:active,
 .settings .content .password-container .submit:focus,
 .settings .content .image-container .submit:active,
-.settings .content .image-container .submit:focus {
+.settings .content .image-container .submit:focus,
+.settings .content .delete-container .submit:active,
+.settings .content .delete-container .submit:focus {
   outline: none;
 }
 
 /* line 52, src/styles/mixins/_button.scss */
 .settings .content .name-container .submit:hover,
 .settings .content .password-container .submit:hover,
-.settings .content .image-container .submit:hover {
+.settings .content .image-container .submit:hover,
+.settings .content .delete-container .submit:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
@@ -780,7 +797,8 @@ a:hover {
 /* line 55, src/styles/mixins/_button.scss */
 .settings .content .name-container .submit:hover::after,
 .settings .content .password-container .submit:hover::after,
-.settings .content .image-container .submit:hover::after {
+.settings .content .image-container .submit:hover::after,
+.settings .content .delete-container .submit:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
@@ -790,7 +808,9 @@ a:hover {
 .settings .content .password-container .submit:active,
 .settings .content .password-container .submit:focus,
 .settings .content .image-container .submit:active,
-.settings .content .image-container .submit:focus {
+.settings .content .image-container .submit:focus,
+.settings .content .delete-container .submit:active,
+.settings .content .delete-container .submit:focus {
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
@@ -798,7 +818,8 @@ a:hover {
 /* line 65, src/styles/mixins/_button.scss */
 .settings .content .name-container .submit::after,
 .settings .content .password-container .submit::after,
-.settings .content .image-container .submit::after {
+.settings .content .image-container .submit::after,
+.settings .content .delete-container .submit::after {
   content: "";
   display: inline-block;
   height: 100%;
@@ -810,6 +831,11 @@ a:hover {
   z-index: -1;
   transition: transform 0.4s, opacity 0.4s;
   background-color: #009FFD;
+}
+
+/* line 211, src/styles/elements/_settings-popup.scss */
+.settings .content .delete-container .headline {
+  margin-bottom: 0.75rem;
 }
 
 /* line 1, src/styles/elements/_todo-popup.scss */

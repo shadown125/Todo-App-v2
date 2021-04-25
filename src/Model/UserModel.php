@@ -34,7 +34,7 @@ class UserModel extends AbstractModel
             $email = $this->conn->quote($data['email']);
             $password = $this->conn->quote($data['password']);
 
-            $query = "INSERT INTO users(first_name, last_name, email, password, level, level_up) VALUES($first_name, $last_name, $email, $password, '1', '30')";
+            $query = "INSERT INTO users(first_name, last_name, email, password, profile_image, level, level_up) VALUES($first_name, $last_name, $email, $password, 'img-2.jpg', '1', '30')";
 
             $this->conn->exec($query);
         } catch (Throwable $exception) {

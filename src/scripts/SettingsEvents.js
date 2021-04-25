@@ -7,10 +7,12 @@ export default class SettingsEvents {
         this.nameContainer = $('[data-name-container]');
         this.passwordContainer = $('[data-password-container]');
         this.imageContainer = $('[data-image-container]');
+        this.deleteContainer = $('[data-delete-container]');
 
         this.nameButton = $('[data-name]');
         this.imageButton = $('[data-image]');
         this.passwordButton = $('[data-password]');
+        this.deleteButton = $('[data-delete]');
         this.settingsButtonBack = $('[data-settings-button-back]');
         this.optionBackButton = $('[data-button-back-in-option]');
 
@@ -20,6 +22,7 @@ export default class SettingsEvents {
         this.nameButton.on('click', this.showNameOption.bind(this));
         this.imageButton.on('click', this.showImageOption.bind(this));
         this.passwordButton.on('click', this.showPasswordOption.bind(this));
+        this.deleteButton.on('click', this.showDeletePopup.bind(this));
     }
 
     resetSettings() {
@@ -29,6 +32,7 @@ export default class SettingsEvents {
             this.nameContainer.removeClass('is-active');
             this.passwordContainer.removeClass('is-active');
             this.imageContainer.removeClass('is-active');
+            this.deleteContainer.removeClass('is-active');
         }, 250);
     }
 
@@ -38,6 +42,7 @@ export default class SettingsEvents {
         this.nameContainer.removeClass('is-active');
         this.passwordContainer.removeClass('is-active');
         this.imageContainer.removeClass('is-active');
+        this.deleteContainer.removeClass('is-active');
     }
 
     showNameOption() {
@@ -53,5 +58,10 @@ export default class SettingsEvents {
     showImageOption() {
         this.overviewContainer.addClass('is-hide');
         this.imageContainer.addClass('is-active');
+    }
+
+    showDeletePopup() {
+        this.overviewContainer.addClass('is-hide');
+        this.deleteContainer.addClass('is-active');
     }
 }

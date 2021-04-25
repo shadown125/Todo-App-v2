@@ -23,9 +23,7 @@
                 <button data-image>Change Image</button>
             </div>
             <div class="options delete">
-                <form action="./?action=deleteUser" method="post">
-                    <button type="submit">Delete account</button>
-                </form>
+                <button data-delete>Delete account</button>
             </div>
             <div class="options">
                 <form action="./?action=logout" method="post">
@@ -36,5 +34,6 @@
         <?php require_once("templates/includes/name-popup.php"); ?>
         <?php require_once("templates/includes/password-popup.php"); ?>
         <?php require_once("templates/includes/image-popup.php"); ?>
+        <?php require_once("templates/includes/delete-popup.php"); ?>
     </div>
 </div>

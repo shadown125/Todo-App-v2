@@ -167,7 +167,8 @@
         }
         .name-container,
         .password-container,
-        .image-container {
+        .image-container,
+        .delete-container {
             display: none;
             position: relative;
             &.is-active {
@@ -206,11 +207,12 @@
                 right: 0;
             }
         }
-        .name-container {
-
-        }
-        .password-container {
-
+        .delete-container {
+            .headline {
+                margin: {
+                    bottom: rem-calc(12);
+                }
+            }
         }
     }
 }
